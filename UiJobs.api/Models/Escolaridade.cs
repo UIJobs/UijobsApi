@@ -6,7 +6,6 @@ namespace UIJobsAPI.Models
     public class Escolaridade
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int idEscolaridade { get; set; }
 
         [Required]

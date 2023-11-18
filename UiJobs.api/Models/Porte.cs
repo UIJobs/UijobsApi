@@ -11,7 +11,6 @@ namespace UIJobsAPI.Models
     {
         [NotNull]
         [Required]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int idPortes { get; set; }
         [NotNull]
         [Required]

@@ -6,7 +6,6 @@ namespace UIJobsAPI.Models
     public class FormacaoAcademica
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int idFormacaoAcademica { get; set; }
 
         [Required]

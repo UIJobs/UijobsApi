@@ -43,17 +43,29 @@ namespace UijobsApi.Controllers
         {
             try
             {
+                // Acesse os cabeçalhos da solicitação
+                var headers = HttpContext.Request.Headers;
+
+                // Exemplo: obter o valor do cabeçalho "Content-Type"
+                if (headers.ContainsKey("Content-Type"))
+                {
+                    var contentType = headers["Content-Type"];
+                    // Faça algo com o valor do cabeçalho, se necessário
+                }
+
+                // Restante da sua lógica para adicionar o endereço do candidato
                 EnderecoCandidato enderecoCandidato = await _enderecoCandidatoService.AddEnderecoCandidatosAsync(novoEnderecoCandidato);
+
+                // Retorne uma resposta de sucesso com o endereço criado
                 return Created("Endereço do Candidato criado", enderecoCandidato);
-                /*return Created("Endereco Candidato", enderecoCandidato);*/
             }
-            catch (BaseException ex)
-            {
+        catch (BaseException ex)
+        {
+                // Se houver uma exceção, retorne a resposta apropriada
                 return ex.GetResponse();
-
             }
 
-            
+
         }
 
         [HttpDelete("{id}")]

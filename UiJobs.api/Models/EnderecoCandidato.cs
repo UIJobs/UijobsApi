@@ -10,6 +10,7 @@ namespace UIJobsAPI.Models
         public int idCandidato { get; set; }
 
         [Required]
+        [MaxLength(8)]
         public string cep { get; set; }
 
         [Required]
@@ -21,8 +22,7 @@ namespace UIJobsAPI.Models
         public string endereco { get; set; }
 
         [Required]
-        [MaxLength(5)]
-        public string numero { get; set; }
+        public int numero { get; set; }
 
         [MaxLength(15)]
         public string? complemento { get; set; }

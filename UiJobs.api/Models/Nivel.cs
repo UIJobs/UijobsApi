@@ -7,7 +7,6 @@ namespace UIJobsAPI.Models
     public class Nivel
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int idNivel { get; set; }
 
         [Required]

@@ -7,7 +7,6 @@ namespace UIJobsAPI.Models;
 public class CarreiraProfissional
 {
     [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int sqCarreiraProfissional { get; set; }
 
     [Required]

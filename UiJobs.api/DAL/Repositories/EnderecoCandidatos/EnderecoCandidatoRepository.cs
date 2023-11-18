@@ -28,6 +28,7 @@ namespace UijobsApi.DAL.Repositories.EnderecoCandidatos
         {
             _context.EnderecoCandidato.Remove(enderecoCandidato);
         }
+
         public async Task<EnderecoCandidato> GetEnderecoCandidatosByIdAsync(int id)
         {
             return await _context.EnderecoCandidato.FirstOrDefaultAsync(endCandi => endCandi.idCandidato == id);

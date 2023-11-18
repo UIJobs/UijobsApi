@@ -8,7 +8,6 @@ namespace UIJobsAPI.Models
     public class Idioma
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int idIdiomas { get; set; }
 
         [Required]

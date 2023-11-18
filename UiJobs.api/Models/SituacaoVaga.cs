@@ -7,7 +7,6 @@ namespace UIJobsAPI.Models
     public class SituacaoVaga
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int idSituacaoVaga { get; set; }
 
         [Required]
