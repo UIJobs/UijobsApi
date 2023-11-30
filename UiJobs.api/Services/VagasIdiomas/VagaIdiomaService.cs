@@ -58,6 +58,12 @@ namespace UijobsApi.Services.VagasIdiomas
 
             return vagaIdioma;
         }
-    
+
+        public async Task<List<VagaIdioma>> GetAllIdiomasbyIdAsync(int id)
+        {
+            return await _vagaIdiomaRepository.GetAllIdiomasbyAsync(id);
+        }
+        
+
     }
 }

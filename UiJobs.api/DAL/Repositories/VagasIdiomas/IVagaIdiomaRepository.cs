@@ -15,5 +15,6 @@ namespace UijobsApi.DAL.Repositories.VagasIdiomas
 
         public Task DeleteVagaIdiomaByIdAsync(VagaIdioma vagaIdioma);
 
+        public Task<List<VagaIdioma>> GetAllIdiomasbyAsync(int id);
     }
 }

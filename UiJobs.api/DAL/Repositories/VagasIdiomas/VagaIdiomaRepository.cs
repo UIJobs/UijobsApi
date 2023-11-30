@@ -33,5 +33,12 @@ namespace UijobsApi.DAL.Repositories.VagasIdiomas
         {
             return await _context.VagasIdiomas.FirstOrDefaultAsync(vagaIdioma => vagaIdioma.idIdiomas == id);
         }
+
+        public async Task<List<VagaIdioma>> GetAllIdiomasbyAsync(int id)
+        {
+            return await _context.VagasIdiomas
+                .Where(vi => vi.idVagas == id)
+                .ToListAsync();
+        }
     }
 }
