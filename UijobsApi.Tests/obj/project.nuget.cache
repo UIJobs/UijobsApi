@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UaaTOrzU081+Cx1Bxeqayb/Wq0aIv589WY+2hK+7KFgtNdRz5WnOdCClslOFzOxk4bszs9z/X4w4MohVjR4v6g==",
+  "dgSpecHash": "3sr/k51ljrNmrNKSCkNmpFrrPUg9B4+Shr6vVfQT+YlwRImrZ04aEmEZELFelHZduHrJMLmPpEL1KVPI/WwiOA==",
   "success": true,
-  "projectFilePath": "D:\\3DS\\UijobsApi-2.4\\UijobsApi.Tests\\UijobsApi.Tests.csproj",
+  "projectFilePath": "C:\\Users\\etechas\\Desktop\\UijobsApi-2.4.1\\UijobsApi.Tests\\UijobsApi.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\etechas\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\etechas\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

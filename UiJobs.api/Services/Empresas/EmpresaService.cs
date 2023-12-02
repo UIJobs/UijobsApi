@@ -20,10 +20,16 @@ namespace UijobsApi.Services.Empresas
         public async Task<Empresa> AddEmpresaAsync(Empresa novaEmpresa)
         {
             Empresa empresaExistente = await _empresaRepository.GetEmpresaByIdAsync(novaEmpresa.idEmpresa);
+            
             if (empresaExistente != null && empresaExistente.Equals(novaEmpresa))
             {
                 // bad request exception \/
                 throw new Exception("Já existe uma empresa Cadastrada com esse perfil.");
+            }
+            //condição pra saber se todos os números são iguais ao primeiro
+            if (novaEmpresa.cnpj.All(c => c == novaEmpresa.cnpj[0]))
+            {
+                throw new Exception("CNPJ inválido");
             }
             Empresa empresa = await _empresaRepository.AddEmpresaAsync(novaEmpresa);
             await _unitOfWork.SaveChangesAsync();

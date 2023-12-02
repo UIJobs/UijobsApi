@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\3DS\\UijobsApi-2.4\\UijobsApi.Tests\\UijobsApi.Tests.csproj": {}
+    "C:\\Users\\etechas\\Desktop\\UijobsApi-2.4.1\\UijobsApi.Tests\\UijobsApi.Tests.csproj": {}
   },
   "projects": {
-    "D:\\3DS\\UijobsApi-2.4\\UiJobs.api\\UijobsApi.csproj": {
+    "C:\\Users\\etechas\\Desktop\\UijobsApi-2.4.1\\UiJobs.api\\UijobsApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\3DS\\UijobsApi-2.4\\UiJobs.api\\UijobsApi.csproj",
+        "projectUniqueName": "C:\\Users\\etechas\\Desktop\\UijobsApi-2.4.1\\UiJobs.api\\UijobsApi.csproj",
         "projectName": "UijobsApi",
-        "projectPath": "D:\\3DS\\UijobsApi-2.4\\UiJobs.api\\UijobsApi.csproj",
+        "projectPath": "C:\\Users\\etechas\\Desktop\\UijobsApi-2.4.1\\UiJobs.api\\UijobsApi.csproj",
         "packagesPath": "C:\\Users\\etechas\\.nuget\\packages\\",
-        "outputPath": "D:\\3DS\\UijobsApi-2.4\\UiJobs.api\\obj\\",
+        "outputPath": "C:\\Users\\etechas\\Desktop\\UijobsApi-2.4.1\\UiJobs.api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -96,14 +96,14 @@
         }
       }
     },
-    "D:\\3DS\\UijobsApi-2.4\\UijobsApi.Tests\\UijobsApi.Tests.csproj": {
+    "C:\\Users\\etechas\\Desktop\\UijobsApi-2.4.1\\UijobsApi.Tests\\UijobsApi.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\3DS\\UijobsApi-2.4\\UijobsApi.Tests\\UijobsApi.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\etechas\\Desktop\\UijobsApi-2.4.1\\UijobsApi.Tests\\UijobsApi.Tests.csproj",
         "projectName": "UijobsApi.Tests",
-        "projectPath": "D:\\3DS\\UijobsApi-2.4\\UijobsApi.Tests\\UijobsApi.Tests.csproj",
+        "projectPath": "C:\\Users\\etechas\\Desktop\\UijobsApi-2.4.1\\UijobsApi.Tests\\UijobsApi.Tests.csproj",
         "packagesPath": "C:\\Users\\etechas\\.nuget\\packages\\",
-        "outputPath": "D:\\3DS\\UijobsApi-2.4\\UijobsApi.Tests\\obj\\",
+        "outputPath": "C:\\Users\\etechas\\Desktop\\UijobsApi-2.4.1\\UijobsApi.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -125,8 +125,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\3DS\\UijobsApi-2.4\\UiJobs.api\\UijobsApi.csproj": {
-                "projectPath": "D:\\3DS\\UijobsApi-2.4\\UiJobs.api\\UijobsApi.csproj"
+              "C:\\Users\\etechas\\Desktop\\UijobsApi-2.4.1\\UiJobs.api\\UijobsApi.csproj": {
+                "projectPath": "C:\\Users\\etechas\\Desktop\\UijobsApi-2.4.1\\UiJobs.api\\UijobsApi.csproj"
               }
             }
           }
