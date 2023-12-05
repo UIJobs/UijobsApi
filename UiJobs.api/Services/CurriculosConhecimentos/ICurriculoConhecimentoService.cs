@@ -11,4 +11,5 @@ namespace UijobsApi.Services.CurriculosConhecimentos
         public Task<CurriculoConhecimento> AddCurriculoConhecimentoAsync(CurriculoConhecimento novoCurriculoConhecimento);
 
         public Task DeleteCurriculoConhecimentoByIdAsync(int idCurriculo, int idConhecimento);
+    }
 }

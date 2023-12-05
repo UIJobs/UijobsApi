@@ -232,3 +232,8 @@ D:\Projetos_DS\UijobsApi-2.5\UiJobs.api\obj\Debug\net7.0\refint\UijobsApi.dll
 D:\Projetos_DS\UijobsApi-2.5\UiJobs.api\obj\Debug\net7.0\UijobsApi.pdb
 D:\Projetos_DS\UijobsApi-2.5\UiJobs.api\obj\Debug\net7.0\UijobsApi.genruntimeconfig.cache
 D:\Projetos_DS\UijobsApi-2.5\UiJobs.api\obj\Debug\net7.0\ref\UijobsApi.dll
+D:\Projetos_DS\UijobsApi-2.5\UiJobs.api\bin\Debug\net7.0\publish\web.config
+D:\Projetos_DS\UijobsApi-2.5\UiJobs.api\bin\Debug\net7.0\publish\appsettings.Development.json
+D:\Projetos_DS\UijobsApi-2.5\UiJobs.api\bin\Debug\net7.0\publish\appsettings.json
+D:\Projetos_DS\UijobsApi-2.5\UiJobs.api\bin\Debug\net7.0\publish\UijobsApi.deps.json
+D:\Projetos_DS\UijobsApi-2.5\UiJobs.api\bin\Debug\net7.0\publish\UijobsApi.runtimeconfig.json
