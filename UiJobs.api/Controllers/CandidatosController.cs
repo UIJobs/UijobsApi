@@ -18,6 +18,26 @@ namespace UIJobsAPI.Controllers
             _candidatoService = candidatoService;
         }
 
+        [HttpGet("GetbyEmail/{email}")]
+        public async Task<IActionResult> GetByIdAsync(string email)
+        {
+            try
+            {
+                Candidato candidato = await _candidatoService.GetCandidatoByEmailAsync(email);
+                return Ok(candidato);
+            }
+            catch (BaseException ex)
+            {
+                // isso a gente controla
+                return ex.GetResponse();
+            }
+            catch (Exception ex)
+            {
+                // isso foge da gente
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetByIdAsync(int id)
         {

@@ -19,7 +19,7 @@ namespace UijobsApi.Services.CurriculosIdiomas
 
         public async Task<CurriculoIdioma> AddCurriculoIdiomaAsync(CurriculoIdioma novoCurriculoIdioma)
         {
-            CurriculoIdioma curriIdiomaExistente = await _curriculoIdiomaRepository.GetCurriculoIdiomasByIdAsync(novoCurriculoIdioma.idCurriculo);
+            CurriculoIdioma curriIdiomaExistente = await _curriculoIdiomaRepository.GetCurriculoIdiomasByIdAsync(novoCurriculoIdioma.idCurriculo, novoCurriculoIdioma.idIdiomas);
             if (curriIdiomaExistente != null && curriIdiomaExistente.Equals(novoCurriculoIdioma))
             {
                 // bad request exception \/
@@ -30,15 +30,16 @@ namespace UijobsApi.Services.CurriculosIdiomas
             return curriculoIdoma;
         }
 
-        public async Task DeleteCurriculoIdiomaByIdAsync(int id)
+        public async Task DeleteCurriculoIdiomaByIdAsync(int curriculoId, int idiomaId)
         {
-            CurriculoIdioma curriculoIdioma = await _curriculoIdiomaRepository.GetCurriculoIdiomasByIdAsync(id);
+            var curriculoIdioma = await _curriculoIdiomaRepository.GetCurriculoIdiomasByIdAsync(curriculoId, idiomaId);
 
-            if (curriculoIdioma is null)
+            if (curriculoIdioma == null)
             {
-                throw new NotFoundException("Curriculo Idioma com id não existe");
+                throw new NotFoundException("BeneficioVaga com id não existe");
             }
-            _curriculoIdiomaRepository.DeleteCurriculoIdiomaByIdAsync(curriculoIdioma);
+
+            await _curriculoIdiomaRepository.DeleteCurriculoIdiomaByIdAsync(curriculoId, idiomaId);
             await _unitOfWork.SaveChangesAsync();
         }
 
@@ -47,16 +48,29 @@ namespace UijobsApi.Services.CurriculosIdiomas
             return await _curriculoIdiomaRepository.GetAllCurriculoIdiomasAsync();
         }
 
-        public async Task<CurriculoIdioma> GetCurriculoIdiomasByIdAsync(int id)
+        public async Task<CurriculoIdioma> GetCurriculoIdiomasByIdAsync(int curriculoId, int idiomaId)
         {
-            CurriculoIdioma curriculoIdioma = await _curriculoIdiomaRepository.GetCurriculoIdiomasByIdAsync(id);
+            var curriculoIdioma = await _curriculoIdiomaRepository.GetCurriculoIdiomasByIdAsync(curriculoId, idiomaId);
 
             if (curriculoIdioma == null)
             {
-                throw new NotFoundException("Curriculo Idioma");
+                throw new NotFoundException("BeneficioVaga não encontrado");
             }
 
             return curriculoIdioma;
         }
+
+        public async Task<List<CurriculoIdioma>> GetAllConhecimentobyIdAsync(int id)
+        {
+            List<CurriculoIdioma> curriculoIdiomas = await _curriculoIdiomaRepository.GetAllCandidatosbyIdAsync(id);
+
+            if (curriculoIdiomas == null)
+            {
+                throw new NotFoundException("vaga Idioma");
+            }
+
+            return curriculoIdiomas;
+        }
+
     }
 }

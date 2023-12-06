@@ -25,7 +25,7 @@ namespace UijobsApi.Controllers
         {
             try
             {
-                VagaConhecimento vagaConhecimento = await _vagaConhecimentoService.GetVagaConhecimentoByIdAsync(id);
+                List<VagaConhecimento> vagaConhecimento = await _vagaConhecimentoService.GetAllConhecimentobyIdAsync(id);
                 return Ok(vagaConhecimento);
             }
             catch (BaseException ex)
@@ -72,12 +72,12 @@ namespace UijobsApi.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteVaga(int id)
+        [HttpDelete("{idVaga}/{idConhecimento}")]
+        public async Task<IActionResult> DeleteVaga(int idVaga, int idConhecimento)
         {
             try
             {
-                await _vagaConhecimentoService.DeleteVagaConhecimentoByIdAsync(id);
+                await _vagaConhecimentoService.DeleteVagaConhecimentoByIdAsync(idVaga, idConhecimento);
                 return NoContent(); // Retorna uma resposta 204 No Content após a exclusão bem-sucedida.
             }
             catch (Exception ex)

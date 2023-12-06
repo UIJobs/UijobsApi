@@ -12,7 +12,9 @@ namespace UijobsApi.Services.VagasIdiomas
 
         public Task<VagaIdioma> AddVagaIdiomaAsync(VagaIdioma novaVagaIdioma);
 
-        public Task DeleteVagaIdiomaByIdAsync(int id);
+        public Task DeleteVagaIdiomaByIdAsync(int idVaga, int idIdioma);
+
+        public Task<List<VagaIdioma>> GetAllIdiomasbyIdAsync(int id);
 
     }
 }

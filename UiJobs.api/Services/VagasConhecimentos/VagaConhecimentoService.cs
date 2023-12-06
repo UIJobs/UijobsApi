@@ -47,16 +47,40 @@ namespace UijobsApi.Services.VagasConhecimentos
             return vagaConhecimento;
         }
 
-        public async Task DeleteVagaConhecimentoByIdAsync(int id)
+        public async Task DeleteVagaConhecimentoByIdAsync(int idVaga, int idConhecimento)
         {
-            VagaConhecimento vagaConhecimento = await _vagaConhecimentoRepository.GetVagaConhecimentoByIdAsync(id);
+            var vagaConhecimento = await _vagaConhecimentoRepository.GetIdVagaAndIdConhecimentoAsync(idVaga, idConhecimento);
 
             if (vagaConhecimento is null)
             {
-                throw new NotFoundException("Vaga Conhecimento com id não existe");
+                throw new NotFoundException("Vaga Idioma com id não existe");
             }
-            _vagaConhecimentoRepository.DeleteVagaConhecimentoByIdAsync(vagaConhecimento);
+            _vagaConhecimentoRepository.DeleteVagaConhecimentoByIdAsync(idVaga, idConhecimento);
             await _unitOfWork.SaveChangesAsync();
+        }
+
+        public async Task<VagaConhecimento> GetAllConhecimentoByIdAsync(int id)
+        {
+            VagaConhecimento vagaConhecimento = await _vagaConhecimentoRepository.GetVagaConhecimentoByIdAsync(id);
+
+            if (vagaConhecimento == null)
+            {
+                throw new NotFoundException("vaga Idioma");
+            }
+
+            return vagaConhecimento;
+        }
+
+        public async Task<List<VagaConhecimento>> GetAllConhecimentobyIdAsync(int id)
+        {
+            List<VagaConhecimento> vagaConhecimento = await _vagaConhecimentoRepository.GetAllConhecimentosbyAsync(id);
+
+            if (vagaConhecimento == null)
+            {
+                throw new NotFoundException("vaga Idioma");
+            }
+
+            return vagaConhecimento;
         }
     }
 }

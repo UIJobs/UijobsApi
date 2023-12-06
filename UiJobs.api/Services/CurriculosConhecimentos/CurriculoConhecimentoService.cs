@@ -19,7 +19,7 @@ namespace UijobsApi.Services.CurriculosConhecimentos
 
         public async Task<CurriculoConhecimento> AddCurriculoConhecimentoAsync(CurriculoConhecimento novoCurriculoConhecimento)
         {
-            CurriculoConhecimento curriConheExistente = await _curriculoConhecimentoRepository.GetCurriculoConhecimentoByIdAsync(novoCurriculoConhecimento.idCurriculo);
+            CurriculoConhecimento curriConheExistente = await _curriculoConhecimentoRepository.GetCurriculoConhecimentoByIdAsync(novoCurriculoConhecimento.idCurriculo, novoCurriculoConhecimento.idConhecimentos);
             if (curriConheExistente != null && curriConheExistente.Equals(novoCurriculoConhecimento))
             {
                 // bad request exception \/
@@ -30,15 +30,16 @@ namespace UijobsApi.Services.CurriculosConhecimentos
             return curriculoConhecimento;
         }
 
-        public async Task DeleteCurriculoConhecimentoByIdAsync(int id)
+        public async Task DeleteCurriculoConhecimentoByIdAsync(int idCurriculo, int idConhecimento)
         {
-            CurriculoConhecimento curriculoConhecimento = await _curriculoConhecimentoRepository.GetCurriculoConhecimentoByIdAsync(id);
+            var curriculoConhecimento = await _curriculoConhecimentoRepository.GetCurriculoConhecimentoByIdAsync(idCurriculo, idConhecimento);
 
-            if (curriculoConhecimento is null)
+            if (curriculoConhecimento == null)
             {
-                throw new NotFoundException("Curriculo Conhecimento com id não existe");
+                throw new NotFoundException("BeneficioVaga com id não existe");
             }
-            _curriculoConhecimentoRepository.DeleteCurriculoConhecimentoByIdAsync(curriculoConhecimento);
+
+            await _curriculoConhecimentoRepository.DeleteCurriculoConhecimentoByIdAsync(idCurriculo, idConhecimento);
             await _unitOfWork.SaveChangesAsync();
         }
 
@@ -49,9 +50,9 @@ namespace UijobsApi.Services.CurriculosConhecimentos
             return await _curriculoConhecimentoRepository.GetAllCurriculoConhecimentosAsync();
         }
 
-        public async Task<CurriculoConhecimento> GetCurriculoConhecimentoByIdAsync(int id)
+        public async Task<CurriculoConhecimento> GetCurriculoConhecimentoByIdAsync(int idCurriculo, int idConhecimento)
         {
-            CurriculoConhecimento curriculoConhecimento = await _curriculoConhecimentoRepository.GetCurriculoConhecimentoByIdAsync(id);
+            CurriculoConhecimento curriculoConhecimento = await _curriculoConhecimentoRepository.GetCurriculoConhecimentoByIdAsync(idCurriculo, idConhecimento);
 
             if (curriculoConhecimento == null)
             {

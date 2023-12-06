@@ -12,6 +12,10 @@ namespace UijobsApi.DAL.Repositories.VagasConhecimentos
 
         public Task<VagaConhecimento> AddVagaConhecimentoAsync(VagaConhecimento novaVagaConhecimento);
 
-        public Task DeleteVagaConhecimentoByIdAsync(VagaConhecimento vagaConhecimento);
+        public Task DeleteVagaConhecimentoByIdAsync(int idVaga, int idConhecimento);
+
+        public Task<List<VagaConhecimento>> GetAllConhecimentosbyAsync(int id);
+
+        public Task<VagaConhecimento> GetIdVagaAndIdConhecimentoAsync(int idVaga, int idConhecimento);
     }
 }

@@ -24,12 +24,12 @@ namespace UijobsApi.Controllers
             _context = context;
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetByIdAsync(int id)
+        [HttpGet("{idCurriculo}/{idConhecimento}")]
+        public async Task<IActionResult> GetByIdAsync(int idCurriculo, int idConhecimento)
         {
             try
             {
-                CurriculoConhecimento curriculoConhecimento = await _curriculoConhecimentoService.GetCurriculoConhecimentoByIdAsync(id);
+                CurriculoConhecimento curriculoConhecimento = await _curriculoConhecimentoService.GetCurriculoConhecimentoByIdAsync(idCurriculo, idConhecimento);
                 return Ok(curriculoConhecimento);
             }
             catch (BaseException ex)
@@ -70,12 +70,12 @@ namespace UijobsApi.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCurriculoConhecimento(int id)
+        [HttpDelete("{idCurriculo}/{idConhecimento}")]
+        public async Task<IActionResult> DeleteCurriculoConhecimento(int idCurriculo, int idConhecimento)
         {
             try
             {
-                await _curriculoConhecimentoService.DeleteCurriculoConhecimentoByIdAsync(id);
+                await _curriculoConhecimentoService.DeleteCurriculoConhecimentoByIdAsync(idCurriculo, idConhecimento);
                 return NoContent(); // Retorna uma resposta 204 No Content após a exclusão bem-sucedida.
             }
             catch (Exception ex)

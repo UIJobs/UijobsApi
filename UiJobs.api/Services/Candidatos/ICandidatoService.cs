@@ -10,5 +10,7 @@ namespace UIJobsAPI.Services.Interfaces
         public Task<Candidato> AddCandidatoAsync(Candidato novoCandidato);
 
         public Task DeleteCandidatoByIdAsync(int id);
+
+        public Task<Candidato> GetCandidatoByEmailAsync(string email);
     }
 }

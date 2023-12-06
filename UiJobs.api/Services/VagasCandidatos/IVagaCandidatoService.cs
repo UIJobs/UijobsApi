@@ -10,5 +10,7 @@ namespace UijobsApi.Services.VagasCandidatos
         public Task<VagaCandidato> AddVagaCandidatoAsync(VagaCandidato novaVagaCandidato);
 
         public Task DeleteVagaCandidatoByIdAsync(int id);
+
+        public Task<List<VagaCandidato>> GetAllConhecimentobyIdAsync(int id);
     }
 }

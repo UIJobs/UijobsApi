@@ -13,8 +13,10 @@ namespace UijobsApi.DAL.Repositories.VagasIdiomas
 
         public Task<VagaIdioma> AddVagaIdiomaAsync(VagaIdioma novaVagaIdioma);
 
-        public Task DeleteVagaIdiomaByIdAsync(VagaIdioma vagaIdioma);
+        public Task DeleteVagaIdiomaByIdAsync(int idVaga, int idIdioma);
 
         public Task<List<VagaIdioma>> GetAllIdiomasbyAsync(int id);
+
+        public Task<VagaIdioma> GetIdVagaAndIdIdiomaAsync(int idVaga, int idIdioma);
     }
 }

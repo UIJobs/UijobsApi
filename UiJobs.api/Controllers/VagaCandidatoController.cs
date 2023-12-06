@@ -29,7 +29,7 @@ namespace UijobsApi.Controllers
         {
             try
             {
-                VagaCandidato vagaCandidato = await _vagaCandidatoService.GetVagaCandidatoByIdAsync(id);
+                List<VagaCandidato> vagaCandidato = await _vagaCandidatoService.GetAllConhecimentobyIdAsync(id);
                 return Ok(vagaCandidato);
             }
             catch (BaseException ex)

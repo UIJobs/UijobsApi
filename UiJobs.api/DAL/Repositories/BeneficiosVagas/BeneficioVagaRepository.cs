@@ -23,9 +23,7 @@ namespace UijobsApi.DAL.Repositories.BeneficiosVagas
             var beneficioVaga = await _context.BeneficioVagas.FirstOrDefaultAsync(bv => bv.idBeneficio == idBeneficio && bv.idVagas == idVaga);
 
             if (beneficioVaga != null)
-            {
                 _context.BeneficioVagas.Remove(beneficioVaga);
-            }
         }
 
         public async Task<BeneficioVaga> GetBeneficioVagaAsync(int beneficioId, int vagaId)

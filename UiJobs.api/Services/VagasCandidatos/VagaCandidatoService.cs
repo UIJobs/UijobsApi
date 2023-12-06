@@ -24,7 +24,7 @@ namespace UijobsApi.Services.VagasCandidatos
                 // bad request exception \/
                 throw new Exception("Já existe um curso cadastrado com esse Id");
             }
-           VagaCandidato vagaCandidato = await _vagaCandidatoRepository.AddVagaCandidatoAsync(novaVagaCandidato);
+            VagaCandidato vagaCandidato = await _vagaCandidatoRepository.AddVagaCandidatoAsync(novaVagaCandidato);
             await _unitOfWork.SaveChangesAsync();
             return vagaCandidato;
         }
@@ -53,6 +53,18 @@ namespace UijobsApi.Services.VagasCandidatos
             if (vagaCandidato == null)
             {
                 throw new NotFoundException("Vaga Candidato");
+            }
+
+            return vagaCandidato;
+        }
+
+        public async Task<List<VagaCandidato>> GetAllConhecimentobyIdAsync(int id)
+        {
+            List<VagaCandidato> vagaCandidato = await _vagaCandidatoRepository.GetAllCandidatosbyIdAsync(id);
+
+            if (vagaCandidato == null)
+            {
+                throw new NotFoundException("vaga Idioma");
             }
 
             return vagaCandidato;

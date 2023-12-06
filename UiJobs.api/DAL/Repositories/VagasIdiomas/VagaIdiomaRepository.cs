@@ -19,9 +19,12 @@ namespace UijobsApi.DAL.Repositories.VagasIdiomas
             return novaVagaIdioma;
         }
 
-        public async Task DeleteVagaIdiomaByIdAsync(VagaIdioma vagaIdioma)
+        public async Task DeleteVagaIdiomaByIdAsync(int idVaga, int idIdioma)
         {
-            _context.VagasIdiomas.Remove(vagaIdioma);
+            var vagaIdioma = await _context.VagasIdiomas.FirstOrDefaultAsync(vi => vi.idVagas == idVaga && vi.idIdiomas == idIdioma);
+
+            if (vagaIdioma != null)
+                _context.VagasIdiomas.Remove(vagaIdioma);
         }
 
         public async Task<IEnumerable<VagaIdioma>> GetAllVagaIdiomaAsync()
@@ -39,6 +42,10 @@ namespace UijobsApi.DAL.Repositories.VagasIdiomas
             return await _context.VagasIdiomas
                 .Where(vi => vi.idVagas == id)
                 .ToListAsync();
+        }
+        public async Task<VagaIdioma> GetIdVagaAndIdIdiomaAsync(int idVaga, int idIdioma)
+        {
+            return await _context.VagasIdiomas.FirstOrDefaultAsync(vi => vi.idVagas == idVaga && vi.idIdiomas == idIdioma);
         }
     }
 }

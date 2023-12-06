@@ -6,9 +6,10 @@ namespace UijobsApi.Services.CurriculosConhecimentos
     {
         public Task<IEnumerable<CurriculoConhecimento>> GetAllCurriculoConhecimentosAsync();
 
-        public Task<CurriculoConhecimento> GetCurriculoConhecimentoByIdAsync(int id);
+        public Task<CurriculoConhecimento> GetCurriculoConhecimentoByIdAsync(int idCurriculo, int idConhecimento);
+
         public Task<CurriculoConhecimento> AddCurriculoConhecimentoAsync(CurriculoConhecimento novoCurriculoConhecimento);
 
-        public Task DeleteCurriculoConhecimentoByIdAsync(int id);
+        public Task DeleteCurriculoConhecimentoByIdAsync(int idCurriculo, int idConhecimento);
     }
 }

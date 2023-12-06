@@ -6,9 +6,11 @@ namespace UijobsApi.DAL.Repositories.CurriculosIdiomas
     {
         public Task<IEnumerable<CurriculoIdioma>> GetAllCurriculoIdiomasAsync();
 
-        public Task<CurriculoIdioma> GetCurriculoIdiomasByIdAsync(int id);
+        public Task<CurriculoIdioma> GetCurriculoIdiomasByIdAsync(int curriculoId, int idiomaId);
         public Task<CurriculoIdioma> AddCurriculoIdiomaAsync(CurriculoIdioma novoCurriculoIdioma);
 
-        public Task DeleteCurriculoIdiomaByIdAsync(CurriculoIdioma curriculoIdioma);
+        public Task DeleteCurriculoIdiomaByIdAsync(int curriculoId, int idiomaId);
+
+        public Task<List<CurriculoIdioma>> GetAllCandidatosbyIdAsync(int id);
     }
 }

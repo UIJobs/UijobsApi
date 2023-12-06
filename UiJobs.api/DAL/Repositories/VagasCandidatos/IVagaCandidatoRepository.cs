@@ -10,5 +10,7 @@ namespace UijobsApi.DAL.Repositories.VagasCandidatos
         public Task<VagaCandidato> AddVagaCandidatoAsync(VagaCandidato novaVagaCandidato);
 
         public Task DeleteVagaCandidatoByIdAsync(VagaCandidato vagaCandidato);
+
+        public Task<List<VagaCandidato>> GetAllCandidatosbyIdAsync(int id);
     }
 }

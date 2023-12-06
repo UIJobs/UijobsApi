@@ -39,6 +39,18 @@ namespace UIJobsAPI.Services.Candidatos
             return candidato;
         }
 
+        public async Task<Candidato> GetCandidatoByEmailAsync(string email)
+        {
+            Candidato candidato = await _candidatoRepository.GetCandidatoByEmailAsync(email);
+
+            if (candidato == null)
+            {
+                throw new NotFoundException("Candidato");
+            }
+
+            return candidato;
+        }
+
         public async Task<Candidato> AddCandidatoAsync(Candidato novoCandidato)
         {
             Candidato candidatoExistente = await _candidatoRepository.GetCandidatoByEmailAsync(novoCandidato.email);

@@ -29,11 +29,24 @@ namespace UijobsApi.DAL.Repositories.VagasConhecimentos
             return novaVagaConhecimento;
         }
 
-        public async Task DeleteVagaConhecimentoByIdAsync(VagaConhecimento vagaConhecimento)
+        public async Task DeleteVagaConhecimentoByIdAsync(int idVaga, int idConhecimento)
         {
-            _context.VagasConhecimentos.Remove(vagaConhecimento);
+            var vagaConhecimento = await _context.VagasConhecimentos.FirstOrDefaultAsync(vi => vi.idVagas == idVaga && vi.idConhecimentos == idConhecimento);
+
+            if (vagaConhecimento != null)
+                _context.VagasConhecimentos.Remove(vagaConhecimento);
         }
 
-        
+        public async Task<List<VagaConhecimento>> GetAllConhecimentosbyAsync(int id)
+        {
+            return await _context.VagasConhecimentos
+                .Where(vi => vi.idVagas == id)
+                .ToListAsync();
+        }
+        public async Task<VagaConhecimento> GetIdVagaAndIdConhecimentoAsync(int idVaga, int idConhecimento)
+        {
+            return await _context.VagasConhecimentos.FirstOrDefaultAsync(vc => vc.idVagas == idVaga && vc.idConhecimentos == idConhecimento);
+        }
+
     }
 }

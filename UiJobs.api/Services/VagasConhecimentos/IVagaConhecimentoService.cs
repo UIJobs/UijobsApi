@@ -12,6 +12,8 @@ namespace UijobsApi.Services.VagasConhecimentos
 
         public Task<VagaConhecimento> AddVagaConhecimentoAsync(VagaConhecimento novaVagaConhecimento);
 
-        public Task DeleteVagaConhecimentoByIdAsync(int id);
+        public Task DeleteVagaConhecimentoByIdAsync(int idVaga, int idConhecimento);
+
+        public Task<List<VagaConhecimento>> GetAllConhecimentobyIdAsync(int id);
     }
 }

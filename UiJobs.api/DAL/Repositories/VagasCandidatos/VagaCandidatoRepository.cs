@@ -33,5 +33,12 @@ namespace UijobsApi.DAL.Repositories.VagasCandidatos
         {
             return await _context.VagasCandidato.FirstOrDefaultAsync(vagaCandi => vagaCandi.idVagas == id);
         }
+
+        public async Task<List<VagaCandidato>> GetAllCandidatosbyIdAsync(int id)
+        {
+            return await _context.VagasCandidato
+                .Where(vi => vi.idVagas == id)
+                .ToListAsync();
+        }
     }
 }

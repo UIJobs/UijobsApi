@@ -37,8 +37,8 @@ namespace UijobsApi.Services.Vagas
 
         public async Task<Vaga> AddVagaAsync(Vaga novaVaga)
         {
-            ValidarCargaHoraria(novaVaga.cargaHoraria);
             Vaga vaga = await _vagaRepository.AddVagaAsync(novaVaga);
+            ValidarCargaHoraria(novaVaga.cargaHoraria);
             await _unitOfWork.SaveChangesAsync();
             return vaga;
         }

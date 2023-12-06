@@ -18,9 +18,12 @@ namespace UijobsApi.DAL.Repositories.CurriculosConhecimentos
             return novoCurriculoConhecimento;
         }
 
-        public  async Task DeleteCurriculoConhecimentoByIdAsync(CurriculoConhecimento curriculoConhecimento)
+        public  async Task DeleteCurriculoConhecimentoByIdAsync(int idCurriculo, int idConhecimento)
         {
-            _context.CurriculoConhecimentos.Remove(curriculoConhecimento);
+            var curriculoConhecimentos = await _context.CurriculoConhecimentos.FirstOrDefaultAsync(ci => ci.idCurriculo == idCurriculo && ci.idConhecimentos == idConhecimento);
+
+            if (curriculoConhecimentos != null)
+                _context.CurriculoConhecimentos.Remove(curriculoConhecimentos);
         }
 
         public async Task<IEnumerable<CurriculoConhecimento>> GetAllCurriculoConhecimentosAsync()
@@ -28,9 +31,9 @@ namespace UijobsApi.DAL.Repositories.CurriculosConhecimentos
             return await _context.CurriculoConhecimentos.ToListAsync();
         }
 
-        public async Task<CurriculoConhecimento> GetCurriculoConhecimentoByIdAsync(int id)
+        public async Task<CurriculoConhecimento> GetCurriculoConhecimentoByIdAsync(int idCurriculo, int idConhecimento)
         {
-            return await _context.CurriculoConhecimentos.FirstOrDefaultAsync(curriculoConhecimento => curriculoConhecimento.idConhecimentos == id);
+            return await _context.CurriculoConhecimentos.FirstOrDefaultAsync(ci => ci.idCurriculo == idCurriculo && ci.idConhecimentos == idConhecimento);
         }
     }
 }

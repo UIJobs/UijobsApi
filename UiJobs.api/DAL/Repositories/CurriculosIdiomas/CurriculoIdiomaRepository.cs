@@ -19,9 +19,12 @@ namespace UijobsApi.DAL.Repositories.CurriculosIdiomas
             return novoCurriculoIdioma;
         }
 
-        public async Task DeleteCurriculoIdiomaByIdAsync(CurriculoIdioma curriculoIdioma)
+        public async Task DeleteCurriculoIdiomaByIdAsync(int curriculoId, int idiomaId)
         {
-            _context.CurriculoIdiomas.Remove(curriculoIdioma);
+            var curriculoIdioma = await _context.CurriculoIdiomas.FirstOrDefaultAsync(ci => ci.idCurriculo == curriculoId && ci.idIdiomas == idiomaId);
+
+            if (curriculoIdioma != null)
+                _context.CurriculoIdiomas.Remove(curriculoIdioma);
         }
 
         public async Task<IEnumerable<CurriculoIdioma>> GetAllCurriculoIdiomasAsync()
@@ -29,9 +32,16 @@ namespace UijobsApi.DAL.Repositories.CurriculosIdiomas
             return await _context.CurriculoIdiomas.ToListAsync();
         }
 
-        public async Task<CurriculoIdioma> GetCurriculoIdiomasByIdAsync(int id)
+        public async Task<CurriculoIdioma> GetCurriculoIdiomasByIdAsync(int curriculoId, int idiomaId)
         {
-            return await _context.CurriculoIdiomas.FirstOrDefaultAsync(curriculoIdioma => curriculoIdioma.idCurriculo == id);
+            return await _context.CurriculoIdiomas.FirstOrDefaultAsync(ci => ci.idCurriculo == curriculoId && ci.idIdiomas == idiomaId);
+        }
+
+        public async Task<List<CurriculoIdioma>> GetAllCandidatosbyIdAsync(int id)
+        {
+            return await _context.CurriculoIdiomas
+                .Where(vi => vi.idCurriculo == id)
+                .ToListAsync();
         }
     }
 }

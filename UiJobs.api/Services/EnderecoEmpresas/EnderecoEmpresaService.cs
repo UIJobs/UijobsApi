@@ -1,4 +1,5 @@
-﻿using UijobsApi.DAL.Repositories.EnderecoEmpresas;
+﻿using Microsoft.IdentityModel.Tokens;
+using UijobsApi.DAL.Repositories.EnderecoEmpresas;
 using UijobsApi.DAL.Unit_of_Work;
 using UIJobsAPI.Exceptions;
 using UIJobsAPI.Models;
@@ -24,6 +25,11 @@ namespace UijobsApi.Services.EnderecoEmpresas
             {
                 // bad request exception \/
                 throw new Exception("Já existe uma empresa com esse id endereco Cadastrado.");
+            }
+            //condição pra saber se todos os números são iguais ao primeiro
+            if (novoEnderecoEmpresa.cep.All(c => c == novoEnderecoEmpresa.cep[0]))
+            {
+                throw new Exception("CNPJ inválido");
             }
             EnderecoEmpresa enderecoEmpresa = await _enderecoEmpresaRepository.AddEnderecoEmpresaAsync(novoEnderecoEmpresa);
             await _unitOfWork.SaveChangesAsync();
@@ -55,6 +61,17 @@ namespace UijobsApi.Services.EnderecoEmpresas
             return enderecoEmpresa;
         }
 
-        
+        public bool TodosCaracteresIguais(string texto)
+        {
+            if (string.IsNullOrEmpty(texto))
+            {
+                // Se a string estiver vazia ou nula, todos os caracteres são considerados iguais.
+                return true;
+            }
+
+            // Verifica se todos os caracteres são iguais ao primeiro caractere.
+            return texto.All(c => c == texto[0]);
+        }
+
     }
 }

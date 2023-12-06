@@ -30,18 +30,6 @@ namespace UijobsApi.Services.VagasIdiomas
             return vagaIdioma;
         }
 
-        public async Task DeleteVagaIdiomaByIdAsync(int id)
-        {
-            VagaIdioma vagaIdioma = await _vagaIdiomaRepository.GetVagaIdiomaByIdAsync(id);
-
-            if (vagaIdioma is null)
-            {
-                throw new NotFoundException("Vaga Idioma com id não existe");
-            }
-            _vagaIdiomaRepository.DeleteVagaIdiomaByIdAsync(vagaIdioma);
-            await _unitOfWork.SaveChangesAsync();
-        }
-
         public async Task<IEnumerable<VagaIdioma>> GetAllVagaIdiomaAsync()
         {
             return await _vagaIdiomaRepository.GetAllVagaIdiomaAsync();
@@ -61,9 +49,26 @@ namespace UijobsApi.Services.VagasIdiomas
 
         public async Task<List<VagaIdioma>> GetAllIdiomasbyIdAsync(int id)
         {
-            return await _vagaIdiomaRepository.GetAllIdiomasbyAsync(id);
-        }
-        
+            List<VagaIdioma> vagaIdioma = await _vagaIdiomaRepository.GetAllIdiomasbyAsync(id);
 
+            if (vagaIdioma == null)
+            {
+                throw new NotFoundException("vaga Idioma");
+            }
+
+            return vagaIdioma;
+        }
+
+        public async Task DeleteVagaIdiomaByIdAsync(int idVaga, int idIdioma)
+        {
+            var vagaIdioma = await _vagaIdiomaRepository.GetIdVagaAndIdIdiomaAsync(idVaga, idIdioma);
+
+            if (vagaIdioma is null)
+            {
+                throw new NotFoundException("Vaga Idioma com id não existe");
+            }
+            _vagaIdiomaRepository.DeleteVagaIdiomaByIdAsync(idVaga, idIdioma);
+            await _unitOfWork.SaveChangesAsync();
+        }
     }
 }
