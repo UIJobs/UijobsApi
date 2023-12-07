@@ -11,6 +11,6 @@ namespace UijobsApi.Services.CurriculosIdiomas
 
         public Task DeleteCurriculoIdiomaByIdAsync(int curriculoId, int idiomaId);
 
-        public Task<List<CurriculoIdioma>> GetAllConhecimentobyIdAsync(int id);
+        public Task<List<CurriculoIdioma>> GetAllCandidatosbyIdAsync(int id);
     }
 }

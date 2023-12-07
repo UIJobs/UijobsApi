@@ -60,7 +60,7 @@ namespace UijobsApi.Services.CurriculosIdiomas
             return curriculoIdioma;
         }
 
-        public async Task<List<CurriculoIdioma>> GetAllConhecimentobyIdAsync(int id)
+        public async Task<List<CurriculoIdioma>> GetAllCandidatosbyIdAsync(int id)
         {
             List<CurriculoIdioma> curriculoIdiomas = await _curriculoIdiomaRepository.GetAllCandidatosbyIdAsync(id);
 

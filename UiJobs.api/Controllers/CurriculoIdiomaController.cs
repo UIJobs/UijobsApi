@@ -42,6 +42,25 @@ namespace UijobsApi.Controllers
             }
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetByIdAsync(int id)
+        {
+            try
+            {
+                List<CurriculoIdioma> curriculoIdioma = await _curriculoIdiomaService.GetAllCandidatosbyIdAsync(id);
+                return Ok(curriculoIdioma);
+            }
+            catch (BaseException ex)
+            {
+                return ex.GetResponse();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
+
+
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAllAsync()
         {
