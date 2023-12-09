@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace UIJobsAPI.Models
 {
@@ -8,7 +9,7 @@ namespace UIJobsAPI.Models
 
     public class Escolaridade
     {
-        
+        [JsonIgnore]
         public int idEscolaridade { get; set; }
 
         [Required]

@@ -10,7 +10,7 @@ namespace UIJobsAPI.Models
 
     public class FormacaoAcademica
     {
-        
+        [JsonIgnore]
         public int idFormacaoAcademica { get; set; }
 
         [Required]

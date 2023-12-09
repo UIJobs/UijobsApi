@@ -11,6 +11,7 @@ namespace UIJobsAPI.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [JsonIgnore]
         public int idCurriculo { get; set; }
         
 

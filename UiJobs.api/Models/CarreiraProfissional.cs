@@ -10,7 +10,7 @@ namespace UIJobsAPI.Models
 
     public class CarreiraProfissional
     {
-     
+        [JsonIgnore]
         public int sqCarreiraProfissional { get; set; }
 
         [Required]

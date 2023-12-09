@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using UIJobsAPI.Models.Enuns;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 
 namespace UIJobsAPI.Models
 {
@@ -10,7 +11,8 @@ namespace UIJobsAPI.Models
 
     public class Curso
     {
-        
+
+        [JsonIgnore]
         public int idCursos { get; set; }
 
         [Required]

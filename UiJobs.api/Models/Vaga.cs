@@ -10,6 +10,7 @@ namespace UIJobsAPI.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
+        [JsonIgnore]
         public int idVagas { get; set; }
 
         public int idEscolaridade { get; set; }

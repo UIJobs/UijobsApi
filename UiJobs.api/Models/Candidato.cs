@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace UIJobsAPI.Models
 {
@@ -10,6 +11,7 @@ namespace UIJobsAPI.Models
     public class Candidato
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [JsonIgnore]
         public int idCandidato { get; set; }
 
         [Required]

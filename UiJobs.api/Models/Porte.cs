@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
+using System.Text.Json.Serialization;
 using UIJobsAPI.Models.Enuns;
 
 namespace UIJobsAPI.Models
@@ -10,6 +11,7 @@ namespace UIJobsAPI.Models
     public class Porte
     {
         [Required]
+        [JsonIgnore]
         public int idPortes { get; set; }
    
         [Required]

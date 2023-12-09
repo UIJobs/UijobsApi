@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using UIJobsAPI.Models.Enuns;
+using System.Text.Json.Serialization;
 
 namespace UIJobsAPI.Models
 {
@@ -9,7 +10,7 @@ namespace UIJobsAPI.Models
 
     public class Idioma
     {
-        
+        [JsonIgnore]
         public int idIdiomas { get; set; }
 
         [Required]

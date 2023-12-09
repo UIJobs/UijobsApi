@@ -13,6 +13,7 @@ namespace UIJobsAPI.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Required]
+        [JsonIgnore]
         public int idEmpresa { get; set; }
 
 
