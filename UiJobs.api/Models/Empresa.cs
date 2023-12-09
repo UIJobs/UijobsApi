@@ -11,7 +11,7 @@ namespace UIJobsAPI.Models
 
     public class Empresa
     {
-    
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Required]
         public int idEmpresa { get; set; }
 

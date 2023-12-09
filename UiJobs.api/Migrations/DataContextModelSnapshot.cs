@@ -551,11 +551,11 @@ namespace UijobsApi.Migrations
 
                     b.HasKey("idVagas");
 
+                    b.HasIndex("idEmpresa");
+
                     b.HasIndex("idEscolaridade");
 
                     b.HasIndex("idSituacaoVaga");
-
-                    b.HasIndex("idEmpresa", "idSituacaoVaga", "idEscolaridade");
 
                     b.ToTable("Vagas");
                 });
@@ -585,8 +585,6 @@ namespace UijobsApi.Migrations
                         .HasColumnType("nvarchar(1)");
 
                     b.HasKey("idCurriculo", "idVagas");
-
-                    b.HasIndex("dcCurriculo");
 
                     b.HasIndex("idVagas");
 
@@ -638,13 +636,13 @@ namespace UijobsApi.Migrations
                     b.HasOne("UIJobsAPI.Models.Beneficio", "Beneficio")
                         .WithMany()
                         .HasForeignKey("idBeneficio")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("UIJobsAPI.Models.Vaga", "Vagas")
                         .WithMany()
                         .HasForeignKey("idVagas")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Beneficio");
@@ -657,7 +655,7 @@ namespace UijobsApi.Migrations
                     b.HasOne("UIJobsAPI.Models.Curriculo", "Curriculo")
                         .WithMany()
                         .HasForeignKey("idCurriculo")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Curriculo");
@@ -668,13 +666,13 @@ namespace UijobsApi.Migrations
                     b.HasOne("UIJobsAPI.Models.Candidato", "Candidato")
                         .WithMany()
                         .HasForeignKey("idCandidato")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("UIJobsAPI.Models.Escolaridade", "Escolaridade")
                         .WithMany()
                         .HasForeignKey("idEscolaridade")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Candidato");
@@ -687,19 +685,19 @@ namespace UijobsApi.Migrations
                     b.HasOne("UIJobsAPI.Models.Conhecimento", "Conhecimentos")
                         .WithMany()
                         .HasForeignKey("idConhecimentos")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("UIJobsAPI.Models.Curriculo", "Curriculo")
                         .WithMany()
                         .HasForeignKey("idCurriculo")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("UIJobsAPI.Models.Nivel", "Nivel")
                         .WithMany()
                         .HasForeignKey("idNivel")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Conhecimentos");
@@ -714,19 +712,19 @@ namespace UijobsApi.Migrations
                     b.HasOne("UIJobsAPI.Models.Curriculo", "Curriculo")
                         .WithMany()
                         .HasForeignKey("idCurriculo")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("UIJobsAPI.Models.Idioma", "Idiomas")
                         .WithMany()
                         .HasForeignKey("idIdiomas")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("UIJobsAPI.Models.Nivel", "Nivel")
                         .WithMany()
                         .HasForeignKey("idNivel")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Curriculo");
@@ -741,7 +739,7 @@ namespace UijobsApi.Migrations
                     b.HasOne("UIJobsAPI.Models.Porte", "Porte")
                         .WithMany()
                         .HasForeignKey("idPortes")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Porte");
@@ -752,7 +750,7 @@ namespace UijobsApi.Migrations
                     b.HasOne("UIJobsAPI.Models.Candidato", "Candidato")
                         .WithMany()
                         .HasForeignKey("idCandidato")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Candidato");
@@ -763,7 +761,7 @@ namespace UijobsApi.Migrations
                     b.HasOne("UIJobsAPI.Models.Empresa", "Empresa")
                         .WithMany()
                         .HasForeignKey("idEmpresa")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Empresa");
@@ -774,13 +772,13 @@ namespace UijobsApi.Migrations
                     b.HasOne("UIJobsAPI.Models.Curriculo", "Curriculo")
                         .WithMany()
                         .HasForeignKey("idCurriculo")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("UIJobsAPI.Models.Curso", "Curso")
                         .WithMany()
                         .HasForeignKey("idCursos")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Curriculo");
@@ -793,19 +791,19 @@ namespace UijobsApi.Migrations
                     b.HasOne("UIJobsAPI.Models.Empresa", "Empresa")
                         .WithMany()
                         .HasForeignKey("idEmpresa")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("UIJobsAPI.Models.Escolaridade", "Escolaridade")
                         .WithMany()
                         .HasForeignKey("idEscolaridade")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("UIJobsAPI.Models.SituacaoVaga", "SituacaoVaga")
                         .WithMany()
                         .HasForeignKey("idSituacaoVaga")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Empresa");
@@ -820,13 +818,13 @@ namespace UijobsApi.Migrations
                     b.HasOne("UIJobsAPI.Models.Curriculo", "Curriculo")
                         .WithMany()
                         .HasForeignKey("idCurriculo")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("UIJobsAPI.Models.Vaga", "Vagas")
                         .WithMany()
                         .HasForeignKey("idVagas")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Curriculo");
@@ -839,19 +837,19 @@ namespace UijobsApi.Migrations
                     b.HasOne("UIJobsAPI.Models.Conhecimento", "Conhecimentos")
                         .WithMany()
                         .HasForeignKey("idConhecimentos")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("UIJobsAPI.Models.Nivel", "Nivel")
                         .WithMany()
                         .HasForeignKey("idNivel")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("UIJobsAPI.Models.Vaga", "Vagas")
                         .WithMany()
                         .HasForeignKey("idVagas")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Conhecimentos");
@@ -866,19 +864,19 @@ namespace UijobsApi.Migrations
                     b.HasOne("UIJobsAPI.Models.Idioma", "Idioma")
                         .WithMany()
                         .HasForeignKey("idIdiomas")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("UIJobsAPI.Models.Nivel", "Nivel")
                         .WithMany()
                         .HasForeignKey("idNivel")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("UIJobsAPI.Models.Vaga", "Vagas")
                         .WithMany()
                         .HasForeignKey("idVagas")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Idioma");

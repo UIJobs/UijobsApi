@@ -10,6 +10,7 @@ namespace UIJobsAPI.Models
     public class Curriculo
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int idCurriculo { get; set; }
         
 

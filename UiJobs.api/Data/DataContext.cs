@@ -5,177 +5,46 @@ namespace UIJobsAPI.Data
 {
     public class DataContext : DbContext
     {
-        public DataContext(DbContextOptions<DataContext> options) : base(options)
-        {
-        }
+        public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
-        public DbSet<Beneficio> Beneficio { get; set; }
-        public DbSet<BeneficioVaga> BeneficioVagas { get; set; }
-        public DbSet<Candidato> Candidato { get; set; }
-        public DbSet<CarreiraProfissional> CarreiraProfissional { get; set; }
-        public DbSet<Conhecimento> Conhecimentos { get; set; }
-        public DbSet<Curriculo> Curriculo { get; set; }
-        public DbSet<CurriculoConhecimento> CurriculoConhecimentos { get; set; }
-        public DbSet<CurriculoIdioma> CurriculoIdiomas { get; set; }
-        public DbSet<Curso> Cursos { get; set; }
-        public DbSet<Empresa> Empresa { get; set; }
-        public DbSet<EnderecoCandidato> EnderecoCandidato { get; set; }
-        public DbSet<EnderecoEmpresa> EnderecoEmpresa { get; set; }
         public DbSet<Escolaridade> Escolaridade { get; set; }
-        public DbSet<FormacaoAcademica> FormacaoAcademica { get; set; }
+        public DbSet<Conhecimento> Conhecimentos { get; set; }
         public DbSet<Idioma> Idiomas { get; set; }
         public DbSet<Nivel> Nivel { get; set; }
         public DbSet<Porte> Portes { get; set; }
+        public DbSet<Empresa> Empresa { get; set; }
+        public DbSet<EnderecoEmpresa> EnderecoEmpresa { get; set; }
+        public DbSet<Beneficio> Beneficio { get; set; }
         public DbSet<SituacaoVaga> SituacaoVaga { get; set; }
         public DbSet<Vaga> Vagas { get; set; }
-        public DbSet<VagaCandidato> VagasCandidato { get; set; }
+        public DbSet<BeneficioVaga> BeneficioVagas { get; set; }
         public DbSet<VagaConhecimento> VagasConhecimentos { get; set; }
         public DbSet<VagaIdioma> VagasIdiomas { get; set; }
+        public DbSet<Candidato> Candidato { get; set; }
+        public DbSet<Curriculo> Curriculo { get; set; }
+        public DbSet<VagaCandidato> VagasCandidato { get; set; }
+        public DbSet<CarreiraProfissional> CarreiraProfissional { get; set; }
+        public DbSet<CurriculoConhecimento> CurriculoConhecimentos { get; set; }
+        public DbSet<CurriculoIdioma> CurriculoIdiomas { get; set; }
+        public DbSet<Curso> Cursos { get; set; }
+        public DbSet<EnderecoCandidato> EnderecoCandidato { get; set; }
+        public DbSet<FormacaoAcademica> FormacaoAcademica { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //Mapeamento Beneficio
-            modelBuilder.Entity<Beneficio>()
-              .HasKey(b=> new { b.idBeneficio });
 
-            // Mapeamento BeneficioVaga
-            modelBuilder.Entity<BeneficioVaga>()
-                .HasKey(bv => new { bv.idVagas, bv.idBeneficio });
-
-            modelBuilder.Entity<BeneficioVaga>()
-                .HasOne(bv => bv.Beneficio)
-                .WithMany()
-                .HasForeignKey(bv => bv.idBeneficio);
-
-            modelBuilder.Entity<BeneficioVaga>()
-                .HasOne(bv => bv.Vagas)
-                .WithMany()
-                .HasForeignKey(bv => bv.idVagas);
-
-            //Mapeamento Candidato
-            modelBuilder.Entity<Candidato>()
-                .HasKey(c => new { c.idCandidato });
-
-            // Mapeamento CarreiraProfissional
-            modelBuilder.Entity<CarreiraProfissional>()
-                .HasKey(sq => new { sq.sqCarreiraProfissional });
-
-            modelBuilder.Entity<CarreiraProfissional>()
-                .HasOne(cp => cp.Curriculo)
-                .WithMany()
-                .HasForeignKey(c => c.idCurriculo);
+            //Mapeamento Escolaridade
+            modelBuilder.Entity<Escolaridade>()
+                 .HasKey(e => new { e.idEscolaridade });
 
             //Mapeamento Conhecimento
             modelBuilder.Entity<Conhecimento>()
                 .HasKey(c => new { c.idConhecimentos });
 
-
-            // Mapeamento Curriculo
-            modelBuilder.Entity<Curriculo>()
-                 .HasKey(c => new { c.idCurriculo });
-
-            modelBuilder.Entity<Curriculo>()
-                .HasOne(c => c.Candidato)
-                .WithMany()
-                .HasForeignKey(c => c.idCandidato);
-
-            modelBuilder.Entity<Curriculo>()
-                .HasOne(c => c.Escolaridade)
-                .WithMany()
-                .HasForeignKey(c => c.idEscolaridade);
-
-            // Mapeamento CurriculoConhecimento
-            modelBuilder.Entity<CurriculoConhecimento>()
-                .HasKey(cc => new { cc.idCurriculo, cc.idConhecimentos});
-
-            modelBuilder.Entity<CurriculoConhecimento>()
-                .HasOne(c => c.Curriculo)
-                .WithMany()
-                .HasForeignKey(c => c.idCurriculo);
-
-            modelBuilder.Entity<CurriculoConhecimento>()
-                .HasOne(c => c.Conhecimentos)
-                .WithMany()
-                .HasForeignKey(c => c.idConhecimentos);
-
-            modelBuilder.Entity<CurriculoConhecimento>()
-                .HasOne(n => n.Nivel)
-                .WithMany()
-                .HasForeignKey(n => n.idNivel);
-
-            // Mapeamento CurriculoIdioma
-            modelBuilder.Entity<CurriculoIdioma>()
-                .HasKey(ci => new { ci.idCurriculo, ci.idIdiomas});
-
-            modelBuilder.Entity<CurriculoIdioma>()
-                .HasOne(c => c.Curriculo)
-                .WithMany()
-                .HasForeignKey(c => c.idCurriculo);
-
-            modelBuilder.Entity<CurriculoIdioma>()
-                .HasOne(c => c.Idiomas)
-                .WithMany()
-                .HasForeignKey(c => c.idIdiomas);
-
-            modelBuilder.Entity<CurriculoIdioma>()
-                .HasOne(n => n.Nivel)
-                .WithMany()
-                .HasForeignKey(n => n.idNivel);
-
-            //Mapeamento Curso
-            modelBuilder.Entity<Curso>()
-                .HasKey(c => new { c.idCursos });
-
-            // Mapeamento Empresa
-            modelBuilder.Entity<Empresa>()
-              .HasKey(e => new { e.idEmpresa});
-
-            modelBuilder.Entity<Empresa>()
-                .HasOne(e => e.Porte)
-                .WithMany()
-                .HasForeignKey(e => e.idPortes);
-
-            // Mapeamento EnderecoCandidato
-            modelBuilder.Entity<EnderecoCandidato>()
-                .HasKey(ec => new { ec.idCandidato});
-
-            modelBuilder.Entity<EnderecoCandidato>()
-                .HasOne(e => e.Candidato)
-                .WithMany()
-                .HasForeignKey(e => e.idCandidato);
-
-            // Mapeamento EnderecoEmpresa
-            modelBuilder.Entity<EnderecoEmpresa>()
-               .HasKey(ee => new { ee.idEmpresa });
-
-            modelBuilder.Entity<EnderecoEmpresa>()
-                .HasOne(e => e.Empresa)
-                .WithMany()
-                .HasForeignKey(e => e.idEmpresa);
-
-            //Mapeamento Escolaridade
-            modelBuilder.Entity<Escolaridade>()
-                 .HasKey(e => new { e.idEscolaridade});
-
-
-            // Mapeamento FormacaoAcademica
-            modelBuilder.Entity<FormacaoAcademica>()
-                .HasKey(fa => new { fa.idFormacaoAcademica, fa.idCurriculo });
-
-            modelBuilder.Entity<FormacaoAcademica>()
-                .HasOne(f => f.Curriculo)
-                .WithMany()
-                .HasForeignKey(c => c.idCurriculo);
-
-            modelBuilder.Entity<FormacaoAcademica>()
-                .HasOne(f => f.Curso)
-                .WithMany()
-                .HasForeignKey(f => f.idCursos);
-
             //Mapeamento Idioma
             modelBuilder.Entity<Idioma>()
-                .HasKey(i => new { i.idIdiomas});
+                .HasKey(i => new { i.idIdiomas });
 
             //Mapeamento Nivel
             modelBuilder.Entity<Nivel>()
@@ -184,6 +53,30 @@ namespace UIJobsAPI.Data
             //Mapeamento Porte
             modelBuilder.Entity<Porte>()
                 .HasKey(p => new { p.idPortes });
+
+            // Mapeamento Empresa
+            modelBuilder.Entity<Empresa>()
+              .HasKey(e => new { e.idEmpresa });
+
+            modelBuilder.Entity<Empresa>()
+                .HasOne(e => e.Porte)
+                .WithMany()
+                .HasForeignKey(e => e.idPortes)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Mapeamento EnderecoEmpresa
+            modelBuilder.Entity<EnderecoEmpresa>()
+               .HasKey(ee => new { ee.idEmpresa });
+
+            modelBuilder.Entity<EnderecoEmpresa>()
+                .HasOne(e => e.Empresa)
+                .WithMany()
+                .HasForeignKey(e => e.idEmpresa)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            //Mapeamento Beneficio
+            modelBuilder.Entity<Beneficio>()
+              .HasKey(b => new { b.idBeneficio });
 
             //Mapeamento SituacaoVaga
             modelBuilder.Entity<SituacaoVaga>()
@@ -194,22 +87,106 @@ namespace UIJobsAPI.Data
                 .HasKey(v => new { v.idVagas });
 
             modelBuilder.Entity<Vaga>()
-                .HasOne(v => v.Escolaridade)
+                .HasOne(ve => ve.Escolaridade)
                 .WithMany()
-                .HasForeignKey(v => v.idEscolaridade)
-                .OnDelete(DeleteBehavior.NoAction);
+                .HasForeignKey(e => e.idEscolaridade)
+                .OnDelete(DeleteBehavior.Restrict);
+
 
             modelBuilder.Entity<Vaga>()
-                .HasOne(v => v.SituacaoVaga)
+                .HasOne(vs => vs.SituacaoVaga)
                 .WithMany()
-                .HasForeignKey(v => v.idSituacaoVaga)
-                .OnDelete(DeleteBehavior.NoAction);
+                .HasForeignKey(sv => sv.idSituacaoVaga)
+                .OnDelete(DeleteBehavior.Restrict);
+
 
             modelBuilder.Entity<Vaga>()
-                .HasOne(v => v.Empresa)
+                .HasOne(e => e.Empresa)
                 .WithMany()
-                .HasForeignKey(v => v.idEmpresa)
-                .OnDelete(DeleteBehavior.NoAction);
+                .HasForeignKey(e => e.idEmpresa)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Mapeamento BeneficioVaga
+            modelBuilder.Entity<BeneficioVaga>()
+                .HasKey(bv => new { bv.idVagas, bv.idBeneficio });
+
+            modelBuilder.Entity<BeneficioVaga>()
+                .HasOne(bv => bv.Beneficio)
+                .WithMany()
+                .HasForeignKey(bv => bv.idBeneficio)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<BeneficioVaga>()
+                .HasOne(bv => bv.Vagas)
+                .WithMany()
+                .HasForeignKey(bv => bv.idVagas)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Mapeamento VagaConhecimento
+            modelBuilder.Entity<VagaConhecimento>()
+                .HasKey(vc => new { vc.idVagas, vc.idConhecimentos });
+
+            modelBuilder.Entity<VagaConhecimento>()
+                .HasOne(e => e.Vagas)
+                .WithMany()
+                .HasForeignKey(v => v.idVagas)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<VagaConhecimento>()
+                .HasOne(v => v.Conhecimentos)
+                .WithMany()
+                .HasForeignKey(v => v.idConhecimentos)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<VagaConhecimento>()
+                .HasOne(v => v.Nivel)
+                .WithMany()
+                .HasForeignKey(v => v.idNivel)
+                .OnDelete(DeleteBehavior.Restrict);
+
+
+            // Mapeamento VagaIdioma
+            modelBuilder.Entity<VagaIdioma>()
+                .HasKey(vi => new { vi.idVagas, vi.idIdiomas });
+
+            modelBuilder.Entity<VagaIdioma>()
+                .HasOne(v => v.Vagas)
+                .WithMany()
+                .HasForeignKey(v => v.idVagas)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<VagaIdioma>()
+                .HasOne(v => v.Idioma)
+                .WithMany()
+                .HasForeignKey(v => v.idIdiomas)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<VagaIdioma>()
+                .HasOne(n => n.Nivel)
+                .WithMany()
+                .HasForeignKey(n => n.idNivel)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            //Mapeamento Candidato
+            modelBuilder.Entity<Candidato>()
+                    .HasKey(c => new { c.idCandidato });
+
+
+            // Mapeamento Curriculo
+            modelBuilder.Entity<Curriculo>()
+                 .HasKey(c => new { c.idCurriculo });
+
+            modelBuilder.Entity<Curriculo>()
+                .HasOne(c => c.Candidato)
+                .WithMany()
+                .HasForeignKey(c => c.idCandidato)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Curriculo>()
+                .HasOne(c => c.Escolaridade)
+                .WithMany()
+                .HasForeignKey(c => c.idEscolaridade)
+                .OnDelete(DeleteBehavior.Restrict);
 
             // Mapeamento VagaCandidato
             modelBuilder.Entity<VagaCandidato>()
@@ -219,52 +196,103 @@ namespace UIJobsAPI.Data
                 .HasOne(c => c.Curriculo)
                 .WithMany()
                 .HasForeignKey(c => c.idCurriculo)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<VagaCandidato>()
                 .HasOne(v => v.Vagas)
                 .WithMany()
-                .HasForeignKey(v => v.idVagas)
-                .OnDelete(DeleteBehavior.NoAction);
+                .HasForeignKey(e => e.idVagas)
+                .OnDelete(DeleteBehavior.Restrict);
 
+            // Mapeamento CarreiraProfissional
+            modelBuilder.Entity<CarreiraProfissional>()
+                .HasKey(sq => new { sq.sqCarreiraProfissional });
 
-            // Mapeamento VagaConhecimento
-            modelBuilder.Entity<VagaConhecimento>()
-                .HasKey(vc => new { vc.idVagas, vc.idConhecimentos });
-
-            modelBuilder.Entity<VagaConhecimento>()
-                .HasOne(v => v.Vagas)
+            modelBuilder.Entity<CarreiraProfissional>()
+                .HasOne(cp => cp.Curriculo)
                 .WithMany()
-                .HasForeignKey(v => v.idVagas);
+                .HasForeignKey(c => c.idCurriculo)
+                .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<VagaConhecimento>()
-                .HasOne(v => v.Conhecimentos)
+            // Mapeamento CurriculoConhecimento
+            modelBuilder.Entity<CurriculoConhecimento>()
+                .HasKey(cc => new { cc.idCurriculo, cc.idConhecimentos });
+
+            modelBuilder.Entity<CurriculoConhecimento>()
+                .HasOne(c => c.Curriculo)
                 .WithMany()
-                .HasForeignKey(v => v.idConhecimentos);
+                .HasForeignKey(c => c.idCurriculo)
+                .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<VagaConhecimento>()
-                .HasOne(v => v.Nivel)
+            modelBuilder.Entity<CurriculoConhecimento>()
+                .HasOne(c => c.Conhecimentos)
                 .WithMany()
-                .HasForeignKey(v => v.idNivel);
+                .HasForeignKey(c => c.idConhecimentos)
+                .OnDelete(DeleteBehavior.Restrict);
 
-            // Mapeamento VagaIdioma
-            modelBuilder.Entity<VagaIdioma>()
-                .HasKey(vi => new { vi.idVagas, vi.idIdiomas});
 
-            modelBuilder.Entity<VagaIdioma>()
-                .HasOne(v => v.Vagas)
-                .WithMany()
-                .HasForeignKey(v => v.idVagas);
-
-            modelBuilder.Entity<VagaIdioma>()
-                .HasOne(v => v.Idioma)
-                .WithMany()
-                .HasForeignKey(v => v.idIdiomas);
-
-            modelBuilder.Entity<VagaIdioma>()
+            modelBuilder.Entity<CurriculoConhecimento>()
                 .HasOne(n => n.Nivel)
                 .WithMany()
-                .HasForeignKey(n => n.idNivel);
+                .HasForeignKey(n => n.idNivel)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Mapeamento CurriculoIdioma
+            modelBuilder.Entity<CurriculoIdioma>()
+                .HasKey(ci => new { ci.idCurriculo, ci.idIdiomas });
+
+            modelBuilder.Entity<CurriculoIdioma>()
+                .HasOne(c => c.Curriculo)
+                .WithMany()
+                .HasForeignKey(c => c.idCurriculo)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<CurriculoIdioma>()
+                .HasOne(c => c.Idiomas)
+                .WithMany()
+                .HasForeignKey(c => c.idIdiomas)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<CurriculoIdioma>()
+                .HasOne(n => n.Nivel)
+                .WithMany()
+                .HasForeignKey(n => n.idNivel)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            //Mapeamento Curso
+            modelBuilder.Entity<Curso>()
+                .HasKey(c => new { c.idCursos });
+
+            // Mapeamento EnderecoCandidato
+            modelBuilder.Entity<EnderecoCandidato>()
+                .HasKey(ec => new { ec.idCandidato });
+
+            modelBuilder.Entity<EnderecoCandidato>()
+                .HasOne(e => e.Candidato)
+                .WithMany()
+                .HasForeignKey(e => e.idCandidato)
+                .OnDelete(DeleteBehavior.Restrict);
+
+
+            // Mapeamento FormacaoAcademica
+            modelBuilder.Entity<FormacaoAcademica>()
+                .HasKey(fa => new { fa.idFormacaoAcademica, fa.idCurriculo });
+
+            modelBuilder.Entity<FormacaoAcademica>()
+                .HasOne(f => f.Curriculo)
+                .WithMany()
+                .HasForeignKey(c => c.idCurriculo)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<FormacaoAcademica>()
+                .HasOne(f => f.Curso)
+                .WithMany()
+                .HasForeignKey(f => f.idCursos)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            base.OnModelCreating(modelBuilder);
+
         }
+
     }
 }

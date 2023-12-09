@@ -569,14 +569,9 @@ C:\Users\etechas\Desktop\UijobsApi-2.6\UiJobs.api\obj\Debug\net7.0\refint\Uijobs
 C:\Users\etechas\Desktop\UijobsApi-2.6\UiJobs.api\obj\Debug\net7.0\UijobsApi.pdb
 C:\Users\etechas\Desktop\UijobsApi-2.6\UiJobs.api\obj\Debug\net7.0\UijobsApi.genruntimeconfig.cache
 C:\Users\etechas\Desktop\UijobsApi-2.6\UiJobs.api\obj\Debug\net7.0\ref\UijobsApi.dll
-D:\Documentos\Peddro\DS\TCC-API\UijobsApi-2.6.1\UiJobs.api\bin\Debug\net7.0\publish\web.config
 D:\Documentos\Peddro\DS\TCC-API\UijobsApi-2.6.1\UiJobs.api\bin\Debug\net7.0\appsettings.Development.json
 D:\Documentos\Peddro\DS\TCC-API\UijobsApi-2.6.1\UiJobs.api\bin\Debug\net7.0\appsettings.json
 D:\Documentos\Peddro\DS\TCC-API\UijobsApi-2.6.1\UiJobs.api\bin\Debug\net7.0\Properties\appsettings.json
-D:\Documentos\Peddro\DS\TCC-API\UijobsApi-2.6.1\UiJobs.api\bin\Debug\net7.0\publish\appsettings.Development.json
-D:\Documentos\Peddro\DS\TCC-API\UijobsApi-2.6.1\UiJobs.api\bin\Debug\net7.0\publish\appsettings.json
-D:\Documentos\Peddro\DS\TCC-API\UijobsApi-2.6.1\UiJobs.api\bin\Debug\net7.0\publish\UijobsApi.deps.json
-D:\Documentos\Peddro\DS\TCC-API\UijobsApi-2.6.1\UiJobs.api\bin\Debug\net7.0\publish\UijobsApi.runtimeconfig.json
 D:\Documentos\Peddro\DS\TCC-API\UijobsApi-2.6.1\UiJobs.api\bin\Debug\net7.0\UijobsApi.exe
 D:\Documentos\Peddro\DS\TCC-API\UijobsApi-2.6.1\UiJobs.api\bin\Debug\net7.0\UijobsApi.deps.json
 D:\Documentos\Peddro\DS\TCC-API\UijobsApi-2.6.1\UiJobs.api\bin\Debug\net7.0\UijobsApi.runtimeconfig.json
@@ -652,3 +647,4 @@ D:\Documentos\Peddro\DS\TCC-API\UijobsApi-2.6.1\UiJobs.api\obj\Debug\net7.0\refi
 D:\Documentos\Peddro\DS\TCC-API\UijobsApi-2.6.1\UiJobs.api\obj\Debug\net7.0\UijobsApi.pdb
 D:\Documentos\Peddro\DS\TCC-API\UijobsApi-2.6.1\UiJobs.api\obj\Debug\net7.0\UijobsApi.genruntimeconfig.cache
 D:\Documentos\Peddro\DS\TCC-API\UijobsApi-2.6.1\UiJobs.api\obj\Debug\net7.0\ref\UijobsApi.dll
+D:\Documentos\Peddro\DS\TCC-API\UijobsApi-2.6.1\UiJobs.api\obj\Debug\net7.0\UijobsApi.sourcelink.json
