@@ -30,7 +30,7 @@ namespace UijobsApi.DAL.Repositories.VagasCandidatos
             int idVagas = novaVagaCandidato.idVagas; // Supondo que Id seja a propriedade que armazena o ID
 
             // Obtém a string de conexão do IConfiguration
-            string connectionString = _configuration.GetConnectionString("PeddroCasa");
+            string connectionString = _configuration.GetConnectionString("ConexaoSmarter");
 
             // Chama a stored procedure com o ID obtido
             using (SqlConnection connection = new SqlConnection(connectionString))

@@ -59,6 +59,10 @@ namespace UIJobsAPI.Services.Candidatos
                 // bad request exception \/
                 throw new Exception("Já existe um candidato com esse email.");
             }
+            if (!ValidarIdade(novoCandidato.dataNascimento))
+            {
+                throw new Exception("Candidato novo demais");
+            }
             Candidato candidato = await _candidatoRepository.AddCandidatoAsync(novoCandidato);
             await _unitOfWork.SaveChangesAsync();
             return candidato;
@@ -79,18 +83,21 @@ namespace UIJobsAPI.Services.Candidatos
 
         // Métodos de Validação
 
-        public Task ValidarIdade(DateTime dataNascimento)
+        public bool ValidarIdade(DateTime dataNascimento)
         {
             DateTime dataAtual = DateTime.Now;
             int idade = dataAtual.Year - dataNascimento.Year;
 
-            if (idade < 16)
+            // Verificar se o aniversário já ocorreu este ano
+            if (dataAtual.Month < dataNascimento.Month || (dataAtual.Month == dataNascimento.Month && dataAtual.Day < dataNascimento.Day))
             {
-                throw new Exception("Candidato novo demais");
-                
+                idade--;
             }
-            return null;
+
+            return idade >= 16;
         }
+
+
 
     }
 }

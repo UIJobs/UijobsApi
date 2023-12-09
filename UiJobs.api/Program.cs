@@ -55,7 +55,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<DataContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("PeddroCasa"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ConexaoSmarter"));
     //Se mudar aqui, mudar também no metodo AddVagaCandidatoAsync do VagaCandidatoRepository
 });
 
@@ -123,6 +123,8 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 //if (app.Environment.IsDevelopment())
 //{
+app.UseCors(option => option.AllowAnyOrigin());
+
 app.UseSwagger();
 app.UseSwaggerUI();
 //}
