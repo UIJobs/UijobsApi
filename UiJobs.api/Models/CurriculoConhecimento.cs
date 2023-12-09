@@ -1,7 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
+
 
 namespace UIJobsAPI.Models
 {
@@ -10,10 +11,11 @@ namespace UIJobsAPI.Models
 
     public class CurriculoConhecimento
     {
-        
+        [Key]
         [ForeignKey("idCurriculo")]
         public int idCurriculo { get; set; }
-
+        
+        [Key]
         [ForeignKey("idConhecimentos")]
         public int idConhecimentos { get; set; }
 
