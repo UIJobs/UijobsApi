@@ -529,6 +529,23 @@ namespace UijobsApi.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "Candidato",
+                columns: new[] { "idCandidato", "dataNascimento", "email", "nome", "nomeMae" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(1995, 3, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), "hungos0223@gmail.com", "Hugo", "Yasmin Fonseca da Silva" },
+                    { 2, new DateTime(1990, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "caio@gmail.com", "Caio", "Rosana Caetano Romero" },
+                    { 3, new DateTime(1987, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), "peddro@gmail.com", "Peddro", "Mariestela Araujo da Silva" },
+                    { 4, new DateTime(1992, 9, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), "nicole@gmail.com", "Nicole", "Giovanna Nascimento Gomes" },
+                    { 5, new DateTime(1988, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), "geovanna@gmail.com", "Geovanna", "Islayne Bragança Ervano" },
+                    { 6, new DateTime(1991, 4, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), "yago@gmail.com", "Yago", "Agostinha Araujo Rezende" },
+                    { 7, new DateTime(1985, 8, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), "erika@gmail.com", "Erika", "Marcy Vabo Silvino" },
+                    { 8, new DateTime(1983, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "tarsi@outlook.com", "Tarcísio Felizardo Lopez", "Cristiane Vidal Felizardo" },
+                    { 9, new DateTime(1982, 6, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "rioslavanda2492@outlook.com", "Isaque Rios Sá", "Neiva Negris Rios" },
+                    { 10, new DateTime(1989, 1, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "maycontwo02@gmail.com", "Maycon Camara Leite", "Emanuelle Theodoro Camara" }
+                });
+
+            migrationBuilder.InsertData(
                 table: "Conhecimentos",
                 columns: new[] { "idConhecimentos", "nomeConhecimento" },
                 values: new object[,]
@@ -549,6 +566,23 @@ namespace UijobsApi.Migrations
                     { 14, "C" },
                     { 15, "C++" },
                     { 16, "COBOL" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Cursos",
+                columns: new[] { "idCursos", "DiplomaCurso", "nomeCurso" },
+                values: new object[,]
+                {
+                    { 1, "S", "Ciências da Computação" },
+                    { 2, "S", "Redes e Segurança" },
+                    { 3, "S", "Banco de Dados" },
+                    { 4, "N", "Excel" },
+                    { 5, "N", "Office" },
+                    { 6, "S", "Aprender Python" },
+                    { 7, "N", "Marketing Digital" },
+                    { 8, "S", "InfraEstrutura" },
+                    { 9, "S", "World" },
+                    { 10, "S", "PowerPoint" }
                 });
 
             migrationBuilder.InsertData(
@@ -609,6 +643,306 @@ namespace UijobsApi.Migrations
                     { 2, "Pequena" },
                     { 3, "Média" },
                     { 4, "Grande" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "SituacaoVaga",
+                columns: new[] { "idSituacaoVaga", "situacaoAtual" },
+                values: new object[,]
+                {
+                    { 1, "Inciada" },
+                    { 2, "Concluída" },
+                    { 3, "Suspensa" },
+                    { 4, "Cancelada" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Curriculo",
+                columns: new[] { "idCurriculo", "dcCurriculo", "duCurriculo", "idCandidato", "idEscolaridade", "objetivo" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(2022, 8, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 1, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 2, "Meu Objetivo é ser o maior fullstack do Brasil e do mundo, estou entrando nessa empresa com conhecimentos técnicos para atingir meu objetivo" },
+                    { 2, new DateTime(2022, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 6, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 2, "Estou em busca de um emprego para desenvolver minhas habilidades em JAVA" },
+                    { 3, new DateTime(2014, 6, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 9, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 2, "Só alcança quem começa" },
+                    { 4, new DateTime(2012, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2022, 11, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, 2, "O dinheiro não é o problema, a falta de ideias criativas para ganhá-lo que é" },
+                    { 5, new DateTime(2015, 5, 23, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), 5, 2, "Até agora, tenho estado a evitar a sua inevitabilidade." },
+                    { 6, new DateTime(2020, 4, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2022, 12, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), 6, 2, "É possível, mas achamos bastante duvidoso." },
+                    { 7, new DateTime(2021, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), 7, 2, "As pessoas devem olhar para mim para a consistência e perseverança." },
+                    { 8, new DateTime(2021, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), 10, 2, "As pessoas devem olhar para mim para a consistência e perseverança." },
+                    { 9, new DateTime(2021, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), 9, 2, "As pessoas devem olhar para mim para a consistência e perseverança." },
+                    { 10, new DateTime(2009, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 6, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), 8, 2, "O número de combinações possíveis e consequentes utilizações parece ilimitado." }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Empresa",
+                columns: new[] { "idEmpresa", "cnpj", "email", "idPortes", "nomeFantasia", "razaoSocial" },
+                values: new object[,]
+                {
+                    { 1, "11.722.246/0001-93", "suportes@testes.com", 2, "Teste", "Ficticios para Testes SA" },
+                    { 2, "07.476.034/0001-04", "edson@marciolimpeza.com", 1, "Edcios Limpezas", "Edson e Márcio Limpeza Ltda" },
+                    { 3, "78.311.160/0001-49", "clara@otavioassessoria.com", 2, "Acessoria Jurídica do Salvador", "Clara e Otávio Assessoria Jurídica ME" },
+                    { 4, "66.267.347/0001-03", "daiane@pedrocontabil.com", 3, "Remus Contabil", "Daiane e Pedro Contábil Ltda" },
+                    { 5, "55.116.850/0001-41", "malu@renancasanoturna.com", 1, "The Noitada Malunan", "Malu e Renan Casa Noturna Ltda" },
+                    { 6, "87.356.417/0001-70", "elias@mateusinformatica.com", 3, "Eltias Tech", "Elias e Mateus Informática Ltda" },
+                    { 7, "07.139.029/0001-06", "lorenzo@rafaelafotografias.com", 3, "Photorela", "Lorenzo e Rafaela Fotografias Ltda" },
+                    { 8, "89.150.471/0001-90", "manoel@alanaautomoveis.com", 2, "Manoel Automóveis", "Manoel e Alana Locações de Automóveis Ltda" },
+                    { 9, "21.799.677/0001-01", "benjamin@isabelfinanceira.com", 2, "Benj&Isa Finaceiros", "Benjamin e Isabel Consultoria Financeira ME" },
+                    { 10, "53.034.779/0001-22", "emily@giovannaautomoveis.com", 4, "Metrono Auto", "Emily e Giovanna Locações de Automóveis ME" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "EnderecoCandidato",
+                columns: new[] { "idCandidato", "bairro", "cep", "cidade", "complemento", "endereco", "logradouro", "numero", "uf" },
+                values: new object[,]
+                {
+                    { 1, "Vila Guilherme", "77007116", "São Paulo", null, "Alcantara", "Rua", 354, "SP" },
+                    { 2, "Aerolândia", "64601203", "Picos", "Apt 13 Bloco A", "Projetada", "Rua", 28, "PI" },
+                    { 3, "Marianga", "49504462", "Salvador", null, "E", "Rua", 2242, "BA" },
+                    { 4, "Vila Lobos", "77020004", "São Sebastião", null, "Itau", "Avenida", 34, "MG" },
+                    { 5, "Liberdade", "69911202", "São Paulo", "2 Andar", "Japão Liberdade", "Rua", 34, "SP" },
+                    { 6, "São Joaquin", "77804170", "Lima Campos", "5 Andar Bloco C", "Roraima", "Avenida", 4343, "RJ" },
+                    { 7, "Santo Antônio", "69908070", "Aracaju", null, "José do Rio Preto", "Rua", 45, "SE" },
+                    { 8, "Novo Paraíso", "65140970", "Aracaju", "5 Andar Bloco C", "Claudio Batista 122", "Rua", 122, "SE" },
+                    { 9, "São Joaquin", "15047224", "Lima Campos", null, "Alberto Belintani", "Rua", 734, "RJ" },
+                    { 10, "Wilson", "97578146", "Santana do Livramento", null, "João Flores da Cunha", "Rua", 666, "RS" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "CarreiraProfissional",
+                columns: new[] { "sqCarreiraProfissional", "cargo", "idCurriculo", "nomeEmpresa", "tempoFim", "tempoInicio" },
+                values: new object[,]
+                {
+                    { 1, "Gerente", 1, "Bradesco", new DateTime(2022, 5, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2017, 9, 2, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 2, "Desenvolvedor", 2, "Ubisoft", new DateTime(2023, 6, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2018, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 3, "Analista de Banco de Dados", 3, "Oracle", new DateTime(2020, 12, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2016, 3, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 4, "Engenheiro de Software", 4, "Google", new DateTime(2021, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 5, "Arquiteto de Soluções", 5, "Amazon", new DateTime(2018, 9, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2015, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 6, "Especialista em Cloud Computing", 6, "Microsoft", new DateTime(2022, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2020, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 7, "Designer de Jogos", 7, "ChibiliKid", new DateTime(2021, 4, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2018, 6, 8, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 8, "Gerente de Projetos", 8, "Bradesco", new DateTime(2022, 5, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2017, 9, 2, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 9, "Especialista em Inovação Tecnológica", 9, "Tech Innovations", new DateTime(2022, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 3, 20, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 10, "Analista de Sistemas", 10, "FutureTech", new DateTime(2020, 6, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2016, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) }
+                });
+
+            migrationBuilder.InsertData(
+                table: "CurriculoConhecimentos",
+                columns: new[] { "idConhecimentos", "idCurriculo", "idNivel" },
+                values: new object[,]
+                {
+                    { 1, 1, 2 },
+                    { 2, 1, 3 },
+                    { 3, 2, 1 },
+                    { 4, 2, 2 },
+                    { 5, 3, 3 },
+                    { 6, 3, 1 },
+                    { 7, 4, 2 },
+                    { 8, 4, 3 },
+                    { 9, 5, 3 },
+                    { 10, 5, 1 },
+                    { 11, 6, 2 },
+                    { 12, 6, 3 },
+                    { 13, 7, 3 },
+                    { 14, 7, 1 },
+                    { 12, 8, 3 },
+                    { 15, 8, 2 },
+                    { 13, 9, 3 },
+                    { 14, 9, 1 },
+                    { 12, 10, 3 },
+                    { 15, 10, 2 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "CurriculoIdiomas",
+                columns: new[] { "idCurriculo", "idIdiomas", "idNivel" },
+                values: new object[,]
+                {
+                    { 1, 1, 2 },
+                    { 1, 3, 3 },
+                    { 2, 2, 1 },
+                    { 2, 5, 5 },
+                    { 3, 1, 3 },
+                    { 3, 4, 2 },
+                    { 4, 2, 4 },
+                    { 4, 3, 1 },
+                    { 5, 1, 4 },
+                    { 5, 5, 5 },
+                    { 6, 3, 2 },
+                    { 6, 4, 1 },
+                    { 7, 1, 3 },
+                    { 7, 2, 5 },
+                    { 8, 4, 4 },
+                    { 8, 5, 1 },
+                    { 9, 2, 2 },
+                    { 9, 3, 5 },
+                    { 10, 1, 3 },
+                    { 10, 4, 1 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "EnderecoEmpresa",
+                columns: new[] { "idEmpresa", "bairro", "cep", "cidade", "complemento", "endereco", "logradouro", "numero", "uf" },
+                values: new object[,]
+                {
+                    { 1, "Vila Ouro Verde", "19816070", "Assis", "2 Andar", "José Antônio Ferreira", "Rua", 970, "SP" },
+                    { 2, "Aliança", "09403120", "Ribeirão Pires", null, "Alvorada", "Rua", 613, "SP" },
+                    { 3, "Jardim Cerqueira Leite", "09390300", "Mauá", null, "João Gianoni", "Rua", 367, "SP" },
+                    { 4, "Parque Residencial Nova Canaã", "13848632", "Mogi Guaçu", "3 andar", "Yumiko Matsuda Kurimoto", "Rua", 695, "SP" },
+                    { 5, "Barreirinha", "82700250", "Curitiba", null, "Jean Jacques Rousseau", "Rua", 1132, "PR" },
+                    { 6, "Alto de São Manoel", "59628150", "Mossoró", "1 Andar", "Nono Rosado", "Rua", 343, "RN" },
+                    { 7, "Pajuçara", "59133080", "Natal", null, "da Agulha", "Rua", 864, "RN" },
+                    { 8, "São Conrado", "49043040", "Aracaju", null, "General João Augusto dos Reis", "Rua", 185, "SE" },
+                    { 9, "Base", "69900007", "Rio Branco", "2 Andar", "Feijó", "Travessa", 2382, "AC" },
+                    { 10, "Centro", "39385971", "Vista Alegre", null, "Tiradentes", "Praça", 13, "MG" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "FormacaoAcademica",
+                columns: new[] { "idCurriculo", "idFormacaoAcademica", "dfCurso", "diCurso", "idCursos" },
+                values: new object[,]
+                {
+                    { 1, 1, new DateTime(2007, 11, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2005, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), 1 },
+                    { 2, 2, new DateTime(2029, 5, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2017, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), 2 },
+                    { 3, 3, new DateTime(2013, 5, 23, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2008, 2, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), 3 },
+                    { 4, 4, new DateTime(2022, 12, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2020, 1, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), 4 },
+                    { 5, 5, new DateTime(2019, 5, 24, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2017, 6, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), 5 },
+                    { 6, 6, new DateTime(2020, 9, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2020, 3, 23, 0, 0, 0, 0, DateTimeKind.Unspecified), 6 },
+                    { 7, 7, new DateTime(2024, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 6, 23, 0, 0, 0, 0, DateTimeKind.Unspecified), 7 },
+                    { 8, 8, new DateTime(2023, 10, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2022, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), 8 },
+                    { 9, 9, new DateTime(2021, 3, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 7, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), 9 },
+                    { 10, 10, new DateTime(2024, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 3, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), 10 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Vagas",
+                columns: new[] { "idVagas", "cargaHoraria", "cargo", "descricao", "finalVigencia", "idEmpresa", "idEscolaridade", "idSituacaoVaga", "inicioVigencia", "localidade", "percAderencia", "salario", "tempoSemanal" },
+                values: new object[,]
+                {
+                    { 1, (short)40, "Desenvolvedor Web", "Descrição da vaga 1", new DateTime(2023, 9, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 1, 1, new DateTime(2023, 9, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), "Cidade A", 75f, 5000f, "Segunda a Sexta - 9h às 18h" },
+                    { 2, (short)35, "Analista de Marketing", "Descrição da vaga 2", new DateTime(2023, 9, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 2, 2, new DateTime(2023, 9, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), "Cidade B", 25f, 4500f, "Segunda a Sexta - 10h às 19h" },
+                    { 3, (short)45, "Engenheiro Civil", "Descrição da vaga 3", new DateTime(2023, 9, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 3, 1, new DateTime(2023, 9, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), "Cidade C", 50f, 6000f, "Segunda a Sexta - 8h às 17h" },
+                    { 4, (short)38, "Contador", "Descrição da vaga 4", new DateTime(2023, 9, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, 4, 3, new DateTime(2023, 9, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), "Cidade D", 33f, 5500f, "Segunda a Sexta - 9h às 18h" },
+                    { 5, (short)37, "Enfermeiro", "Descrição da vaga 5", new DateTime(2023, 9, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 5, 5, 1, new DateTime(2023, 9, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), "Cidade E", 75f, 5200f, "Segunda a Sexta - 8h às 17h" },
+                    { 6, (short)30, "Designer Gráfico", "Descrição da vaga 6", new DateTime(2023, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 6, 1, 2, new DateTime(2023, 9, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "Cidade F", 50f, 4800f, "Segunda a Sexta - 10h às 19h" },
+                    { 7, (short)32, "Psicólogo", "Descrição da vaga 7", new DateTime(2023, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), 7, 2, 3, new DateTime(2023, 9, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "Cidade G", 25f, 5200f, "Segunda a Sexta - 9h às 18h" },
+                    { 8, (short)42, "Advogado", "Descrição da vaga 8", new DateTime(2023, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), 8, 3, 1, new DateTime(2023, 9, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "Cidade H", 75f, 5800f, "Segunda a Sexta - 8h às 17h" },
+                    { 9, (short)36, "Analista Financeiro", "Descrição da vaga 9", new DateTime(2023, 9, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), 9, 4, 2, new DateTime(2023, 9, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), "Cidade I", 25f, 5400f, "Segunda a Sexta - 9h às 18h" },
+                    { 10, (short)44, "Médico", "Descrição da vaga 10", new DateTime(2023, 9, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), 10, 5, 3, new DateTime(2023, 9, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), "Cidade J", 25f, 6200f, "Segunda a Sexta - 8h às 17h" },
+                    { 11, (short)39, "Analista de Sistemas", "Descrição da vaga 11", new DateTime(2023, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 1, 1, new DateTime(2023, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), "Cidade A", 33f, 5400f, "Segunda a Sexta - 9h às 18h" },
+                    { 12, (short)31, "Recrutador", "Descrição da vaga 12", new DateTime(2023, 9, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 2, 2, new DateTime(2023, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), "Cidade B", 50f, 4800f, "Segunda a Sexta - 10h às 19h" },
+                    { 13, (short)47, "Arquiteto", "Descrição da vaga 13", new DateTime(2023, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 3, 1, new DateTime(2023, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), "Cidade C", 75f, 6000f, "Segunda a Sexta - 8h às 17h" },
+                    { 14, (short)40, "Analista Contábil", "Descrição da vaga 14", new DateTime(2023, 9, 23, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, 4, 3, new DateTime(2023, 9, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), "Cidade D", 50f, 5500f, "Segunda a Sexta - 9h às 18h" },
+                    { 15, (short)37, "Enfermeira Pediátrica", "Descrição da vaga 15", new DateTime(2023, 9, 24, 0, 0, 0, 0, DateTimeKind.Unspecified), 5, 5, 1, new DateTime(2023, 9, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), "Cidade E", 25f, 5200f, "Segunda a Sexta - 8h às 17h" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "BeneficioVagas",
+                columns: new[] { "idBeneficio", "idVagas" },
+                values: new object[,]
+                {
+                    { 3, 1 },
+                    { 7, 1 },
+                    { 8, 2 },
+                    { 9, 2 },
+                    { 2, 3 },
+                    { 10, 3 },
+                    { 2, 4 },
+                    { 5, 4 },
+                    { 10, 5 },
+                    { 15, 5 },
+                    { 6, 6 },
+                    { 12, 6 },
+                    { 8, 7 },
+                    { 15, 7 },
+                    { 1, 8 },
+                    { 3, 8 },
+                    { 4, 9 },
+                    { 9, 9 },
+                    { 6, 10 },
+                    { 11, 10 },
+                    { 5, 11 },
+                    { 11, 11 },
+                    { 7, 12 },
+                    { 12, 12 },
+                    { 3, 13 },
+                    { 4, 13 },
+                    { 13, 14 },
+                    { 14, 14 },
+                    { 1, 15 },
+                    { 13, 15 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "VagasConhecimentos",
+                columns: new[] { "idConhecimentos", "idVagas", "idNivel" },
+                values: new object[,]
+                {
+                    { 2, 1, 3 },
+                    { 3, 1, 1 },
+                    { 4, 2, 2 },
+                    { 5, 2, 3 },
+                    { 6, 3, 1 },
+                    { 7, 3, 2 },
+                    { 8, 4, 3 },
+                    { 9, 4, 3 },
+                    { 10, 5, 1 },
+                    { 11, 5, 2 },
+                    { 12, 6, 3 },
+                    { 13, 6, 3 },
+                    { 14, 7, 1 },
+                    { 15, 7, 2 },
+                    { 1, 8, 3 },
+                    { 2, 8, 1 },
+                    { 3, 9, 2 },
+                    { 4, 9, 3 },
+                    { 5, 10, 4 },
+                    { 6, 10, 5 },
+                    { 7, 11, 1 },
+                    { 8, 11, 2 },
+                    { 9, 12, 3 },
+                    { 10, 12, 4 },
+                    { 11, 13, 5 },
+                    { 12, 13, 1 },
+                    { 13, 14, 2 },
+                    { 14, 14, 3 },
+                    { 1, 15, 5 },
+                    { 15, 15, 4 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "VagasIdiomas",
+                columns: new[] { "idIdiomas", "idVagas", "idNivel" },
+                values: new object[,]
+                {
+                    { 1, 1, 2 },
+                    { 2, 1, 3 },
+                    { 3, 2, 1 },
+                    { 4, 2, 2 },
+                    { 5, 3, 3 },
+                    { 6, 3, 1 },
+                    { 7, 4, 2 },
+                    { 8, 4, 3 },
+                    { 9, 5, 1 },
+                    { 10, 5, 2 },
+                    { 11, 6, 3 },
+                    { 12, 6, 1 },
+                    { 13, 7, 2 },
+                    { 14, 7, 3 },
+                    { 1, 8, 4 },
+                    { 15, 8, 1 },
+                    { 2, 9, 5 },
+                    { 3, 9, 1 },
+                    { 4, 10, 2 },
+                    { 5, 10, 3 },
+                    { 6, 11, 4 },
+                    { 7, 11, 5 },
+                    { 8, 12, 1 },
+                    { 9, 12, 2 },
+                    { 10, 13, 3 },
+                    { 11, 13, 4 },
+                    { 12, 14, 5 },
+                    { 13, 14, 1 },
+                    { 14, 15, 2 },
+                    { 15, 15, 3 }
                 });
 
             migrationBuilder.CreateIndex(

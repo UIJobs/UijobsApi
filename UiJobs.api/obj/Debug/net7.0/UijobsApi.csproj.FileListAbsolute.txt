@@ -730,11 +730,6 @@ D:\Documentos\Peddro\DS\TCC-API\UijobsApi-2.6.2\UiJobs.api\obj\Debug\net7.0\Uijo
 C:\Users\Caio\Desktop\UijobsApi-3\UiJobs.api\bin\Debug\net7.0\appsettings.Development.json
 C:\Users\Caio\Desktop\UijobsApi-3\UiJobs.api\bin\Debug\net7.0\appsettings.json
 C:\Users\Caio\Desktop\UijobsApi-3\UiJobs.api\bin\Debug\net7.0\Properties\appsettings.json
-C:\Users\Caio\Desktop\UijobsApi-3\UiJobs.api\bin\Debug\net7.0\publish\web.config
-C:\Users\Caio\Desktop\UijobsApi-3\UiJobs.api\bin\Debug\net7.0\publish\appsettings.Development.json
-C:\Users\Caio\Desktop\UijobsApi-3\UiJobs.api\bin\Debug\net7.0\publish\appsettings.json
-C:\Users\Caio\Desktop\UijobsApi-3\UiJobs.api\bin\Debug\net7.0\publish\UijobsApi.deps.json
-C:\Users\Caio\Desktop\UijobsApi-3\UiJobs.api\bin\Debug\net7.0\publish\UijobsApi.runtimeconfig.json
 C:\Users\Caio\Desktop\UijobsApi-3\UiJobs.api\bin\Debug\net7.0\UijobsApi.exe
 C:\Users\Caio\Desktop\UijobsApi-3\UiJobs.api\bin\Debug\net7.0\UijobsApi.deps.json
 C:\Users\Caio\Desktop\UijobsApi-3\UiJobs.api\bin\Debug\net7.0\UijobsApi.runtimeconfig.json
